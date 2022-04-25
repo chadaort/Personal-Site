@@ -1,0 +1,91 @@
+//
+// Theme toggle button as placeholders.
+//
+
+$theme-active-prefix: '.theme-control--';
+
+.header {
+	--theme-toggle-height: 21px;
+	--theme-toggle-width: 44px;
+	--theme-toggle-rect-color: var( --color__primary );
+	--theme-toggle-circle-color: #{ $color__white-f };
+}
+
+// Header and slide-down menu variables for when the background is dark.
+.header__menu--active .header,
+.is-home.header__menu--active .header,
+.is-home .header {
+	--theme-toggle-height: 19px;
+	--theme-toggle-width: 44px;
+	--theme-toggle-rect-color: white;
+	--theme-toggle-circle-color: var( --color__secondary );
+}
+
+// Override variable for the home page.
+.is-home .header {
+	--theme-toggle-circle-color: var( --color__primary );
+}
+
+@mixin theme-toggle() {
+	@content;
+	$parent: &;
+
+	--theme-toggle-height: 21px;
+	--theme-toggle-width: 44px;
+	--theme-toggle-rect-color: var( --color__primary );
+	--theme-toggle-circle-color: #{ $color__white-f };
+
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: calc( 50% - ( var( --theme-toggle-height ) / 2 ) );
+	height: var( --theme-toggle-height );
+	width: var( --theme-toggle-width );
+	background: transparent;
+	border: 0;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&-svg {
+		height: 100%;
+		width: 100%;
+		display: block;
+		font-size: 0;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&-rect { fill: var( --theme-toggle-rect-color ) }
+
+	&-circle {
+		fill: var( --theme-toggle-circle-color );
+		transition: fill 200ms;
+		animation-duration: 200ms;
+		animation-timing-function: ease-out;
+		animation-fill-mode: forwards;
+
+		body[data-theme='light'] #{ $parent } & {
+			animation-name: slide-theme-toggle-light;
+		}
+
+		body[data-theme='dark'] #{ $parent } & {
+			animation-name: slide-theme-toggle-dark;
+			fill: var( --theme-toggle-active-circle-color );
+		}
+
+		@keyframes slide-theme-toggle-light {
+			0% { transform: translate( 50%, 0 ) }
+			100% { transform: translate( 0, 0 ) }
+		}
+
+		@keyframes slide-theme-toggle-dark {
+			0% { transform: translate( 0, 0 ) }
+			100% { transform: translate( 50%, 0 ) }
+		}
+	}
+}

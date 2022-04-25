@@ -1,0 +1,61 @@
+<%
+
+const defaultFileType = 'jpg';
+const defaultImgWidths = [
+	700,
+	980,
+	1200,
+];
+
+const defaultImgWidthsNew = [
+	700,
+	980,
+	1200,
+	1600,
+];
+
+getSrc = ( path, imgWidth = defaultImgWidths, fileType = defaultFileType ) => {
+
+	if ( false === imgWidth || ( Array.isArray( imgWidth ) && ! imgWidth.length ) ) {
+		return `${ templateData.site.core.siteUrl }/${ path }`;
+	}
+
+	if ( Array.isArray( imgWidth ) ) {
+		imgWidth = Math.max( ...imgWidth );
+	}
+	return `${ templateData.site.core.siteUrl }/${ path }-${ imgWidth }.${ fileType }`;
+}
+
+getSrcset = ( path, imgWidths = defaultImgWidths, fileType = defaultFileType ) => {
+	let srcsetVal = '';
+	imgWidths.forEach( ( size ) => {
+		srcsetVal += `${ templateData.site.core.siteUrl }/${ path }-${ size }.${ fileType } ${ size }w `;
+	} );
+	return srcsetVal.trimEnd();
+}
+
+getSrcsetNew = ( path, filePrefix, imgWidths = defaultImgWidthsNew, fileType = 'png', ) => {
+	let srcsetVal = '';
+
+	if ( ! imgWidths ) {
+		imgWidths = defaultImgWidthsNew;
+	}
+
+	if ( Array.isArray( imgWidths ) ) {
+		imgWidths.forEach( ( size ) => {
+			srcsetVal += `${ templateData.site.core.siteUrl }/${ path }/${ filePrefix }-${ size }.${ fileType } ${ size }w, `;
+		} );
+	} else {
+		for ( let width in imgWidths ) {
+			srcsetVal += `${ templateData.site.core.siteUrl }/${ path }/${ filePrefix }-${ width }.${ fileType } ${ imgWidths[ width ] }w `;
+		}
+	}
+
+	return srcsetVal.trimEnd();
+}
+
+getDefaultSize = () => {
+	return '( min-width: 980px ) 75vw, 100vw';
+}
+
+%>

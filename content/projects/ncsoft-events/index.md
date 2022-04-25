@@ -1,0 +1,3 @@
+As a publisher, NCSOFT managed a lot of events. We created a dedicated event site on a subdomain of ncsoft.com that allowed the event team to showcase upcoming events with an archive of past events. The other side of this was that our sponsors wanted prime real estate that the company wasn’t able to do on the main site. 
+
+This was a project where I took on both the design and development. The design followed the existing site with a few new components but I always enjoy taking on a design project from time to time. The development work included the frontend, customizations for the new content type in the CMS, and writing documentation.

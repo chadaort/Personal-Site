@@ -1,0 +1,165 @@
+//
+// Contact page hero element.
+//
+
+.contact-hero {
+	width: 100%;
+	height: 11rem;
+	position: relative;
+	overflow: hidden;
+
+	@include media-query( $start: desktop ) {
+		height: 16rem;
+	}
+}
+
+.contact-hero__wrapper {
+	height: inherit;
+	overflow: auto;
+	background-size: 165% auto;
+	background-position: 50% 0;
+
+	@include media-query( $start: tablet ) {
+		background-size: 135% auto;
+	}
+
+	@include media-query( $start: desktop ) {
+		background-size: cover;
+	}
+}
+
+@keyframes heading {
+	0% {
+		opacity: 0;
+		transform: scale( 1 );
+	}
+	50% { transform: scale( 1.5 ) }
+	75% { transform: scale( .9 ) }
+	100% { opacity: 1 }
+}
+
+.contact-hero__overlay-left,
+.contact-hero__overlay-right {
+	opacity: .3;
+
+	&:before,
+	&:after {
+		animation-fill-mode: forwards;
+	}
+}
+
+.contact-hero__overlay-left {
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		animation-duration: 500ms;
+		animation-delay: 600ms;
+		animation-timing-function: ease-in;
+	}
+
+	&:before {
+		left: 50%;
+		right: 50%;
+		background: $color__primary;
+		animation-name: overlay-left--before;
+
+
+	}
+
+	&:after {
+		left: 50%;
+		right: 50%;
+		background: var( --color__secondary );
+		animation-name: overlay-left--after;
+	}
+}
+
+@keyframes overlay-left--before {
+	100% { left: 7% }
+}
+
+@keyframes overlay-left--after {
+	100% { right: 7% }
+}
+
+.contact-hero__overlay-right {
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		animation-duration: 200ms;
+		animation-delay: 1100ms;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+	}
+
+	&:before {
+		left: 7%;
+		right: 93%;
+		background-color: rgba( $color__secondary, .35 );
+		animation-name: overlay-right--before;
+	}
+
+	&:after {
+		left: 93%;
+		right: 7%;
+		background-color: rgba( $color__primary, .35 );
+		animation-name: overlay-right--after;
+	}
+}
+
+@keyframes overlay-right--before {
+	100% { left: 0 }
+}
+
+@keyframes overlay-right--after {
+	100% { right: 0 }
+}
+
+.contact-hero__heading-wrapper {
+	display: flex;
+	height: 100%;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	z-index: 9;
+}
+
+.contact-hero__heading {
+	position: relative;
+	opacity: 0;
+	animation-name: heading;
+	animation-duration: 800ms;
+	animation-delay: 1100ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
+}
+
+.contact-hero__heading-subtitle {
+	position: absolute;
+	top: -18px;
+	left: 0;
+	opacity: 0;
+	animation-name: fade-sub-heading-in;
+	animation-duration: 500ms;
+	animation-delay: 1500ms;
+	animation-fill-mode: forwards;
+	color: $color__secondary;
+	font-size: 1.5em;
+	font-weight: 700;
+
+	@keyframes fade-sub-heading-in { 100% { opacity: .8 } }
+}
+
+.contact-hero__heading-title {
+	opacity: .6;
+	color: white;
+	font-size: 3em;
+	font-weight: 900;
+	text-transform: uppercase;
+}

@@ -1,0 +1,42 @@
+/* stylelint-disable declaration-colon-space-after */
+:root {
+
+	// Palette
+	--color__primary:             #{ $color__primary };
+	--color__primary-light:       #{ $color__primary-light };
+	--color__primary-dark:        #{ $color__primary-dark };
+	--color__primary-text:        #{ $color__primary-text };
+	--color__primary-text-dark:   #{ $color__primary-text-dark };
+	--color__secondary:           #{ $color__secondary };
+	--color__secondary-light:     #{ $color__secondary-light };
+	--color__secondary-dark:      #{ $color__secondary-dark };
+	--color__secondary-text:      #{ $color__secondary-text };
+	--color__secondary-text-dark: #{ $color__secondary-text-dark };
+	--color__tertiary:            #{ $color__tertiary };
+
+	// Logo
+	--color__logo-symbol: #222222;
+	--color__logo-text:   #000000;
+
+	// Lines
+	--color__line-primary:   #{ $color__white-c };
+	--color__line-secondary: #{ $color__white-d };
+	--color__line-tertiary:  #{ $color__white-e };
+
+	// Backgrounds
+	--color__bg-primary:   #{ $color__white-f };
+	--color__bg-secondary: #{ $color__primary };
+	--color__bg-tertiary:  #{ $color__white-d };
+
+	// Accents
+	--color__accent-primary: #{ $color__primary-light };
+
+	// Typography
+	--color__text-title-primary:   #{ $color__black-1 };
+	--color__text-title-secondary: #{ $color__black-3 };;
+	--color__text-body:            #{ $color__black-3 };
+	--color__text-summary:         #{ $color__black-5 };
+	--color__text-muted:           #{ $color__black-6 };
+}
+
+/* stylelint-enable declaration-colon-space-after */

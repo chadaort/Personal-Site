@@ -1,0 +1,59 @@
+<%- include( '../helpers/img-utils' ) -%>
+<%- include( '../helpers/sorting' ) -%>
+
+<div id="main-content" class="content__main">
+	<div class="about-page">
+		<div class="about-page__content">
+			<%- templateData.post.body %>
+		</div>
+		<aside class="about-page__aside">
+			<ul class="about-page__pics">
+				<li class="about-page__pics-li">
+					<a href="#" class="about-page__pics-a">
+						<img class="about-page__pics-img" src="<%= getSrc( 'assets/images/about/me.jpg', false ) %>">
+					</a>
+				</li>
+				<li class="about-page__pics-li">
+					<a href="#" class="about-page__pics-a">
+						<img class="about-page__pics-img" src="<%= getSrc( 'assets/images/about/bus.jpg', false ) %>">
+					</a>
+				</li>
+				<li class="about-page__pics-li">
+					<a href="#" class="about-page__pics-a">
+						<img class="about-page__pics-img" src="<%= getSrc( 'assets/images/about/howard.jpg', false ) %>">
+					</a>
+				</li>
+			</ul>
+		</aside>
+	</div>
+</div>
+
+<div class="content__after">
+	<div class="career-timeline">
+		<h3 class="career-timeline__title-wrapper">
+			<span class="career-timeline__title">Personal Work History</span>
+		</h3>
+		<div class="career-timeline__company-list">
+
+			<% templateData.companies.forEach( company => { %>
+				<div class="career-timeline__company">
+					<div class="career-timeline__company-wrapper">
+						<span class="career-timeline__bar-components"></span>
+						<h4 class="career-timeline__position has-dark-bg">
+							<%= company.meta.position %>
+							<span class="career-timeline__dates has-dark-bg"><%= company.meta.employmentTimeframe %></span>
+						</h4>
+						<h3 class="career-timeline__company-name has-dark-bg">
+							<a href="<%= `${ templateData.site.core.siteUrl }/${ company.post.publicPath }` %>" class="career-timeline__company-name-link">
+								<%= company.post.title %>
+							</a>
+						</h3>
+						<p class="career-timeline__desc has-dark-bg"><%= company.post.summary %></p>
+						<a href="<%= `${ templateData.site.core.siteUrl }/${ company.post.publicPath }` %>" class="career-timeline__cta has-dark-bg">Read More</a>
+					</div>
+				</div>
+			<% } ); %>
+
+		</div>
+	</div>
+</div>

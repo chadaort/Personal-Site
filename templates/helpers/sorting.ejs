@@ -1,0 +1,5 @@
+<%
+	sortByMetaDate = ( listData ) => {
+		return listData.sort( ( a, b ) => new Date( b.meta.date ) - new Date( a.meta.date ) );
+	}
+%>

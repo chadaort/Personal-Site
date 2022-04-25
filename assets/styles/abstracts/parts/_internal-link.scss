@@ -1,0 +1,77 @@
+/// Builds the main navigation styles.
+///
+/// @param {string} $el_prefix The placement specific class to use as the selector prefix.
+/// @content Allows for scoped CSS variables to be defined.
+/// @return
+@mixin internal-link( $el_prefix ) {
+	@content;
+
+	.#{ $el_prefix }ul {
+		padding-left: 0;
+		list-style-type: none;
+	}
+
+	.#{ $el_prefix }li {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		position: relative;
+
+		&:after {
+			content: '';
+			height: 1px;
+			position: absolute;
+			left: -.75rem;
+			right: -.5rem;
+			bottom: 0;
+			background-color: var( --color__line-tertiary );
+		}
+
+		&:last-child::after {
+			display: none;
+		}
+
+		//border-bottom: 1px solid var( --color__line-secondary );
+	}
+
+	.#{ $el_prefix }item {
+
+	}
+
+	.#{ $el_prefix }img-wrapper {
+		@extend %img__treatment-primary;
+	}
+
+	.#{ $el_prefix }img {
+		@extend %img__x;
+	}
+
+	.#{ $el_prefix }details {
+		margin: 0 .4rem;
+	}
+
+	.#{ $el_prefix }title {
+		margin: .5em 0 .3em;
+		font-size: var( --font__large );
+		font-weight: 400;
+	}
+
+	.#{ $el_prefix }title-a {
+		color: var( --color__primary-title );
+
+		&:hover {
+			color: var( --color__secondary-text-dark );
+		}
+	}
+
+	.#{ $el_prefix }summary {
+		margin: 0;
+		color: var( --color__text-summary );
+		font-size: 1rem;
+		line-height: 1.6;
+	}
+
+	.#{ $el_prefix }cta {
+		@extend %btn--outline-primary-small;
+		margin-top: 1rem;
+	}
+}

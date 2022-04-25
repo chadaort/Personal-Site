@@ -1,0 +1,6 @@
+/// Returns the gutter size based on the type and device size.
+/// @param {string} $type Represents the gutter location.
+/// @param {string} $device Device size.
+@function gutter( $type, $device: 'mobile' ) {
+	@return map-get( map-get( $gutters, $type ), $device );
+}

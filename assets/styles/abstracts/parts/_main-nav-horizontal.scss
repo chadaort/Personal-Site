@@ -1,0 +1,93 @@
+// Builds the main navigation styles.
+//
+// @param {string} $prefix The placement specific class to use as the selector prefix.
+// @content Allows for scoped CSS variables to be defined.
+// @return
+@mixin main-nav-desktop( $prefix ) {
+
+	@content;
+
+	position: relative;
+	display: inline-block;
+	height: inherit;
+	min-height: 0;
+	max-height: 100%;
+	font-family: $typography__font-heading;
+	font-weight: 500;
+	text-align: right;
+	background: none;
+
+	.#{ $prefix }-ul {
+		margin: 0;
+		padding-left: 0;
+		height: inherit;
+		max-height: 100%;
+		opacity: 1;
+		list-style-type: none;
+	}
+
+	.#{ $prefix }-li {
+		margin: 0;
+		padding: 0 20px 0 6px;
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		height: inherit;
+		max-height: 100%;
+		border: 0;
+
+		&:last-child { padding-right: 0 }
+	}
+
+	.#{ $prefix }-a {
+
+		//height: inherit;
+		//max-height: 100%;
+		position: relative;
+		vertical-align: middle;
+		color: var( --color__text-title-primary );
+		font-size: var( --font__scale-0 );
+		font-weight: 500;
+		text-decoration: none;
+
+		&:after {
+			content: '/';
+			position: absolute;
+			top: calc( ( 50% - 17px ) + 1px );
+			right: -19px;
+			color: var( --color__primary-text );
+			font-family: $typography__font-heading;
+			font-weight: 300;
+			font-size: 34px;
+			line-height: 34px;
+		}
+
+		&:hover,
+		&:active,
+		.#{ $prefix }-li.active & {
+			color: var( --color__secondary-text ),
+		}
+
+		&:focus {
+			color: var( --color__secondary-text-dark );
+			outline-width: 3px;
+			outline-color: #78aeda;
+			outline-style: solid;
+		}
+	}
+
+	.#{ $prefix }-link-count {
+		margin-left: 8px;
+		padding: 2px 5px;
+		position: relative;
+		top: -1px;
+		color: white;
+		font-family: $typography__font-base;
+		font-size: var( --font__xxsmall );
+		font-weight: 600;
+		background: var( --color__secondary );
+		border-radius: 6px;
+	}
+
+	.#{ $prefix }-li:last-child .#{ $prefix }-a:after { display: none }
+}

@@ -1,0 +1,36 @@
+<header class="header">
+
+	<div class="header__brand">
+		<div class="header__brand-wrapper">
+			<% if ( templateData.post.type === 'home' ) { %>
+				<%- include( '../partials/svg-logo' ) %>
+			<% } else { %>
+				<a href="<%= templateData.site.core.siteUrl %>">
+					<%- include( '../partials/svg-logo' ) %>
+				</a>
+			<% } %>
+		</div>
+	</div>
+
+	<div id="header__menu" class="header__menu">
+		<nav class="header__menu-nav">
+
+			<div id="header__controls" class="header__controls">
+				<nav class="header__controls-wrapper">
+					<ul class="header__controls-ul">
+						<li class="header__controls-li">
+							<button id="header__controls-menu-toggle" class="header__controls-menu-toggle">
+								<span class="header__controls-menu-toggle-icon"></span>
+							</button>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="header__menu-wrapper">
+				<%- include( '../partials/nav-main' ) %>
+			</div>
+
+		</nav>
+	</div>
+</header>

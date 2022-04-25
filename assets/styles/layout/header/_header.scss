@@ -1,0 +1,85 @@
+@import './controls';
+@import './menu';
+
+// Default header and slide-down menu variables.
+.header {
+	--header-height: 3.75rem;
+
+	@include media-query( $start: desktop ) {
+		--header-height: 5rem;
+	}
+}
+
+//
+// Header and slide-down menu styles.
+//
+.header {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+	height: var( --header-height );
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		z-index: 2;
+		background-color: var( --color__line-secondary );
+
+		.is-home & { display: none }
+
+		.is-contact & { content: none }
+	}
+
+	.is-home & {
+		position: absolute;
+		z-index: 4;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			right: -100%;
+			bottom: 0;
+			background: rgba( white, .7 );
+		}
+	}
+
+	.is-home[data-theme='dark'] &:before {
+		background-color: rgba( black, .55 );
+	}
+}
+
+.header__menu-nav {
+	text-align: right;
+}
+
+.header__brand {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	flex-basis: 50%;
+	justify-content: center;
+	height: 100%;
+}
+
+.header__brand-wrapper {
+	padding: 12px 0;
+	position: relative;
+	display: inline-block;
+	height: inherit;
+	max-height: 100%;
+	width: 50%;
+	z-index: 11;
+
+	@include media-query( $start: desktop ) {
+		padding: 20px 0;
+	}
+}

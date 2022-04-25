@@ -1,0 +1,7 @@
+/dist/
+Pulumi.*.yaml
+/node_modules/
+*error.log
+yarn-error.log
+/assets/asset-manifest.json
+/_asset-sources/

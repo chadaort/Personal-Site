@@ -1,0 +1,7 @@
+.logo {
+	height: inherit;
+	max-height: 100%;
+
+	.logo-symbol { fill: var( --color__logo-symbol ) }
+	.logo-name { fill: var( --color__logo-text ) }
+}

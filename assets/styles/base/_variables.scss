@@ -1,0 +1,25 @@
+/*
+ * Global root variables.
+ */
+
+:root {
+	--gutter__frame: #{ map-get( map-get( $gutters, frame ), mobile ) };
+}
+
+@include media-query( $start: tablet, $end: desktop ) {
+	:root {
+		--gutter__frame: #{ map-get( map-get( $gutters, frame ), tablet ) };
+	}
+}
+
+@include media-query( $start: desktop, $end: wide ) {
+	:root {
+		--gutter__frame: #{ map-get( map-get( $gutters, frame ), desktop ) };
+	}
+}
+
+@include media-query( $start: wide ) {
+	:root {
+		--gutter__frame: #{ map-get( map-get( $gutters, frame ), wide ) };
+	}
+}

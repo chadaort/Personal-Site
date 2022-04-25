@@ -1,0 +1,61 @@
+<div id="main-content" class="content__main">
+
+	<div class="featured-companies">
+
+		<div class="featured-companies__content">
+			<h2 class="featured-companies__title">I'm currently working for Snopes as the lead engineer supporting our fact checking initiatives.</h2>
+			<a class="featured-companies__cta" href="<%= templateData.site.core.siteUrl %>/about/companies">View work history</a>
+		</div>
+
+		<div class="featured-companies__visual">
+			<ul class="featured-companies__company-ul">
+				<% templateData.companies.forEach( company => { %>
+					<li class="featured-companies__company-li">
+						<h3 class="featured-companies__company-title"><a class="featured-companies__company-a" href="<%= company.post.publicPath %>"><%= company.post.title %></a></h3>
+						<h4 class="featured-companies__company-type"><%= company.meta.companyType %></h4>
+					</li>
+				<% } ); %>
+			</ul>
+		</div>
+
+	</div>
+
+	<div class="feature-custom-build has-dark-bg">
+		<div class="feature-custom-build__bg-img" style="background-image: url( <%= templateData.site.core.siteUrl %>/assets/images/mountain.png )"></div>
+		<div class="feature-custom-build__inner-wrapper">
+			<div class="feature-custom-build__content">
+				<h2 class="feature-custom-build__title">How I crafted this site</h2>
+				<div class="feature-custom-build__copy">
+					<p>Sunt autem vel illum, qui ratione neque disputatione, quam interrogare aut perferendis doloribus asperiores repellat hanc ego assentior, cum a sapiente delectus, ut calere ignem.</p>
+					<p>Sunt autem vel illum, qui ratione neque disputatione, quam interrogare aut perferendis doloribus asperiores repellat hanc ego assentior, cum a sapiente delectus, ut calere ignem.</p>
+					<a class="feature-custom-build__cta" href="#">View project on Github</a>
+				</div>
+			</div>
+			<a class="feature-custom-build__visual" href="#">
+				<img class="feature-custom-build__visual-img" src="<%= templateData.site.core.siteUrl %>/assets/images/visual.png" alt="">
+			</a>
+		</div>
+	</div>
+
+	<div class="featured-work">
+
+		<h2 class="featured-work__title">What I have been working on</h2>
+		<ul class="featured-work__ul">
+			<li class="featured-work__li">
+				<h3 class="featured-work__item-title">
+					<a class="featured-work__item-title-a" href="#">Membership platform</a>
+				</h3>
+				<p class="featured-work__item-summary">Sunt autem vel illum, qui ratione neque disputatione, quam interrogare aut perferendis doloribus asperiores repellat hanc ego assentior… <a href="#">read more</a></p>
+			</li>
+			<li class="featured-work__li">
+				<h3 class="featured-work__item-title">
+					<a class="featured-work__item-title-a" href="#">WordPress migration to Gutenburg</a>
+				</h3>
+				<p class="featured-work__item-summary">Sunt autem vel illum, qui ratione neque disputatione, quam interrogare aut perferendis doloribus asperiores repellat hanc ego assentior… <a href="#">read more</a></p>
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+<div class="content__after"></div>

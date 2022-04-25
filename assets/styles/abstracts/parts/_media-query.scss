@@ -1,0 +1,53 @@
+/*
+	Builds a fairly simple media query
+
+	@param {false|number} $start Uses min-width
+	@param {false|number} $end Uses max-width
+	@param {bool} $high-density Determines whether its selecting 192dpi or higher
+	@return
+ */
+@mixin media-query( $start: false, $end: false, $high-density: false ) {
+
+	$start: if( type-of( $start ) == string, map-get( $device-breakpoints, $start ), $start );
+	$end: if( type-of( $end ) == string, map-get( $device-breakpoints, $end ), $end );
+
+	@if $high-density {
+
+		@if $end {
+
+			@if $start {
+				@media
+					( -webkit-min-device-pixel-ratio: 2 ) and ( min-width: #{ $start } ) and ( max-width: #{ $end - 1 } ),
+					( min-resolution: 192dpi ) and ( min-width: #{ $start } ) and ( max-width: #{ $end - 1 } ) { @content }
+			} @else {
+				@media
+					( -webkit-min-device-pixel-ratio: 2 ) and( max-width: #{ $end - 1 } ),
+					( min-resolution: 192dpi ) and ( max-width: #{ $end - 1 } ) { @content }
+			}
+
+		} @else if $start {
+
+			@media
+				( -webkit-min-device-pixel-ratio: 2 ) and ( min-width: #{ $start } ),
+				( min-resolution: 192dpi ) and ( min-width: #{ $start } ) { @content }
+
+		} @else {
+
+			@media
+				( -webkit-min-device-pixel-ratio: 2 ),
+				( min-resolution: 192dpi ) { @content }
+		}
+
+	} @else {
+
+		@if $end {
+			@if $start {
+				@media ( min-width: #{ $start } ) and ( max-width: #{ $end - 1 } )  { @content; }
+			} @else {
+				@media ( max-width: #{ $end - 1 } )  { @content; }
+			}
+		} @else {
+			@media ( min-width: #{ $start } ) { @content; }
+		}
+	}
+}

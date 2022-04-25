@@ -1,0 +1,13 @@
+.icon__hamburger {
+
+	.icon__hamburger-top-bar,
+	.icon__hamburger-mid-bar,
+	.icon__hamburger-btm-bar {
+		fill: $color__primary;
+	}
+
+	.icon__hamburger-mid-bar {
+		fill: $color__primary-light;
+		fill: $color__black-8;
+	}
+}

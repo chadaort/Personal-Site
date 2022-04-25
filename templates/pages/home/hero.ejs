@@ -1,0 +1,27 @@
+<%- include( '../../helpers/img-utils' ) %>
+
+<div class="hero-intro">
+	<div class="hero-intro__wrapper">
+		<span class="hero-intro__copy-bg">
+			<img class="hero-intro__copy-bg-img" src="<%= getSrc( 'assets/images/light-intro-text-bg.png', false ) %>" />
+			<img class="hero-intro__copy-bg-img-desktop" src="<%= getSrc( 'assets/images/light-intro-text-bg-desktop.png', false ) %>" />
+		</span>
+		<div class="hero-intro__copy">
+			<h1 class="hero-intro__title">
+				<span class="hero-intro__line">
+					<span class="hero-intro__first-word">Hello</span>,
+					my name is
+					<span class="hero-intro__no-break"><span class="hero-intro__name">Chad Ort</span>.</span>
+				</span>
+				<span class="hero-intro__line">
+					I'm a short-stack developer and have worked in the
+					<span class="hero-intro__no-break"><a href="<%= templateData.site.core.siteUrl %>/about/companies/ncsoft/" class="hero-intro__industry">gaming</a>,</span>
+					<span class="hero-intro__no-break"><a href="<%= templateData.site.core.siteUrl %>/about/companies/proper-media/" class="hero-intro__industry">advertising</a>,</span>
+					and <a href="<%= templateData.site.core.siteUrl %>/about/companies/snopes/" class="hero-intro__industry">media</a> industry.
+					I enjoy meeting new people so make sure to
+					<span class="hero-intro__no-break"><a href="<%= templateData.site.core.siteUrl %>/contact/" class="hero-intro__link" href="#">say hi</a>.</span>
+				</span>
+			</h1>
+		</div>
+	</div>
+</div>

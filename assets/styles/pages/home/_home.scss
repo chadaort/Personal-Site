@@ -1,0 +1,296 @@
+@import './hero';
+
+//
+// Section - companies that I have worked for.
+//
+.featured-companies {
+	margin: 150px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: center;
+
+	.featured-companies__content,
+	.featured-companies__visual { flex: 0 0 100% }
+
+	@include media-query( $start: desktop ) {
+		margin-top: 250px;
+		margin-bottom: 250px;
+		flex-direction: row;
+		text-align: left;
+
+		.featured-companies__content {
+			flex: 0 0 50%;
+			text-align: right;
+		}
+
+		.featured-companies__visual { flex: 0 0 40% }
+	}
+
+	@include media-query( $start: wide ) {
+		.featured-companies__content { flex: 0 0 54% }
+		.featured-companies__visual { flex: 0 0 36% }
+	}
+}
+
+.featured-companies__title {
+	@extend %typography-heading-3;
+	margin: 0 0 10px 0;
+}
+
+.featured-companies__cta {
+	@extend %btn--primary;
+	margin-top: 20px;
+}
+
+.featured-companies__company-ul {
+	margin: 65px 0 0 0;
+	padding-left: 0;
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	height: 100%;
+	list-style-type: none;
+
+	@include media-query( $start: desktop ) {
+		margin-top: 0;
+	}
+}
+
+.featured-companies__company-li {
+	margin-bottom: 0;
+	padding-bottom: 35px;
+	position: relative;
+	transition: opacity 200ms;
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+
+	.featured-companies__company-ul:hover & {
+		opacity: .2;
+
+		&:hover {
+			opacity: 1;
+
+		}
+	}
+
+	@include media-query( $start: desktop ) {
+		padding-bottom: 20px;
+	}
+}
+
+.featured-companies__company-a {
+	display: block;
+	color: var( --color__text-title-primary );
+
+	.featured-companies__company-li:hover & {
+		color: var( --color__secondary-text );
+	}
+
+	&:hover { color: var( --color__secondary ) }
+}
+
+.featured-companies__company-title {
+	margin: 0;
+	font-size: var( --font__scale-4 );
+	font-weight: 900;
+	text-transform: uppercase;
+
+	@include media-query( $start: desktop ) {
+		font-size: var( --font__scale-3 );
+	}
+}
+
+.featured-companies__company-type {
+	margin: 0;
+	color: var( --color__text-muted );
+	font-size: var( --font__large );
+	transition: color 200ms;
+
+	.featured-companies__company-li:hover & {
+		color: var( --color__text-title-primary );
+	}
+}
+
+//
+// Section - custom build.
+//
+.feature-custom-build {
+	@extend %breakout-container;
+	position: relative;
+}
+
+.feature-custom-build__inner-wrapper {
+	@extend %site-frame-wrapper;
+	padding-top: 150px;
+	padding-bottom: 150px;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	text-align: center;
+
+	@include media-query( $start: desktop-lg ) {
+		flex-direction: row;
+		text-align: left;
+		justify-content: space-between;
+	}
+}
+
+.feature-custom-build__bg-img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-position: center center;
+	background-size: cover;
+	z-index: -1;
+
+	[data-theme="dark"] &:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: black;
+		opacity: .3;
+		z-index: 3;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		opacity: .95;
+		z-index: 2;
+		background: var( --color__secondary );
+		background: linear-gradient( 45deg,  var( --color__secondary ) 30%,  var( --color__primary ) 70% );
+	}
+}
+
+.feature-custom-build__content,
+.feature-custom-build__visual { flex: 0 0 100% }
+
+.feature-custom-build__content {
+	margin-bottom: 2rem;
+	padding: 0;
+
+	@include media-query( $start: desktop-lg ) {
+		margin-bottom: 0;
+		flex: 0 0 46%;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		order: 2;
+	}
+}
+
+.feature-custom-build__visual {
+	margin-top: 65px;
+
+	@include media-query( $start: desktop-lg ) {
+		margin-top: 0;
+		flex: 0 0 46%;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		order: 1;
+	}
+}
+
+.feature-custom-build__visual-img {
+	display: inline-block;
+	max-height: 600px;
+	max-width: 100%;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+}
+
+.feature-custom-build__title {
+	margin: 0;
+	color: var( --color__text-title-primary );
+	font-size: var( --font__scale-3 );
+}
+
+.feature-custom-build__copy {
+	margin-top: 15px;
+
+	p { color: $color__white-f }
+
+	p:first-of-type { margin-top: 0 }
+}
+
+.feature-custom-build__cta {
+	@extend %btn--primary;
+	margin-top: 20px;
+	color: $color__black-4;
+	background-color: $color__white-f;
+
+	&:hover {
+		color: var( --color__secondary-text-dark );
+		background-color: $color__white-f;
+	}
+}
+
+//
+// Section - current work.
+//
+.featured-work {
+	margin: 50px auto;
+	max-width: 900px;
+	text-align: center;
+}
+
+.featured-work__title {
+	@extend %typography-heading-5--cap;
+	position: relative;
+	display: inline-block;
+	color: var( --color__text-muted );
+	font-size: var( --font__scale-1 );
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: -15px;
+		left: 25%;
+		right: 25%;
+		height: 1px;
+		background: var( --color__line-secondary );
+	}
+}
+
+.featured-work__item-title-a {
+	color: var( --color__text-title-primary );
+
+	&:hover { color: var( --color__secondary-text-dark ) }
+}
+
+.featured-work__ul {
+	margin-top: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.featured-work__li {
+	padding: 40px 0;
+	border-bottom: 1px solid var( --color__line-tertiary );
+
+	&:last-child { border-bottom: 0 }
+}
+
+.featured-work__item-title {
+	margin: 0 0 7px 0;
+
+	@extend %typography-heading-4;
+}
+
+.featured-work__item-summary {
+	margin: 0;
+	color: var( --color__text-summary );
+}

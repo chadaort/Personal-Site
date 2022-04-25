@@ -1,0 +1,23 @@
+<h4 class="aside-content__title-wrapper">
+	<span class="aside-content__title">Other Companies</span>
+</h4>
+
+<div class="aside-content__list">
+	<ul class="aside-content__list-ul">
+		<% templateData.sidebar.forEach( item => { %>
+			<li class="aside-content__list-li">
+				<div class="company-link__item">
+					<a class="company-link__a" href="<%= `${ templateData.site.core.siteUrl }/${ item.rootPath }` %>">
+						<h3 class="company-link__name"><%= item.post.title %></h3>
+						<h4 class="company-link__type"><%= item.meta.companyType %></h4>
+					</a>
+
+					<div class="company-link__details">
+						<p class="company-link__summary"><%= item.post.summary %></p>
+						<a class="company-link__cta" href="<%= `${ templateData.site.core.siteUrl }/${ item.publicPath }` %>">Read More</a>
+					</div>
+				</div>
+			</li>
+		<% } ); %>
+	</ul>
+</div>

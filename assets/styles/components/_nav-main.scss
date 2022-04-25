@@ -1,0 +1,110 @@
+.main-nav {
+	position: relative;
+	display: inline-block;
+	height: inherit;
+	min-height: 0;
+	max-height: 100%;
+	font-family: $typography__font-heading;
+	font-weight: 500;
+	text-align: right;
+	background: none;
+
+	.header__menu--active & {
+		margin-top: 2rem;
+		width: 100%;
+	}
+}
+
+.main-nav__ul {
+	margin: 0;
+	padding-left: 0;
+	height: inherit;
+	min-width: 150px;
+	max-height: 100%;
+	opacity: 1;
+	list-style-type: none;
+
+	.header__menu--active & {
+		margin: 0 1.5rem;
+	}
+}
+
+.main-nav__li {
+	margin: 0;
+	padding: 0 20px 0 6px;
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	height: inherit;
+	max-height: 100%;
+	text-align: left;
+	border: 0;
+
+	&:first-child { padding-left: 0 }
+	&:last-child { padding-right: 0 }
+
+	.header__menu--active & {
+		padding: .75rem 1.2rem;
+		display: block;
+		border-bottom: 1px solid rgba( white, .2 );
+	}
+}
+
+.main-nav__a {
+	position: relative;
+	vertical-align: middle;
+	color: var( --color__text-title-primary );
+	font-size: var( --font__scale-0 );
+	font-weight: 500;
+	text-decoration: none;
+
+	&:after {
+		content: '/';
+		position: absolute;
+		top: calc( ( 50% - 17px ) + 1px );
+		right: -19px;
+		color: var( --color__primary-text );
+		font-family: $typography__font-heading;
+		font-weight: 300;
+		font-size: 34px;
+		line-height: 34px;
+
+		.is-home .header & {
+			color: rgba( white, .3 );
+		}
+	}
+
+	.main-nav__li:last-child &::after {
+		display: none;
+	}
+
+	&:hover,
+	&:active,
+	.main-nav__li.active & {
+		color: var( --color__secondary-text ),
+	}
+
+	&:focus { color: var( --color__secondary-text-dark ) }
+	&:focus-visible { outline: none }
+
+	.header__menu--active & {
+		display: block;
+		color: white;
+		font-weight: 600;
+
+		&:hover { color: #222 }
+	}
+}
+
+.main-nav__link-count {
+	margin-left: 5px;
+	padding: 2px 5px;
+	position: relative;
+	top: -1px;
+	color: white;
+	font-family: $typography__font-base;
+	font-size: var( --font__xxsmall );
+	font-weight: 600;
+	background: var( --color__secondary );
+	border-radius: 6px;
+}

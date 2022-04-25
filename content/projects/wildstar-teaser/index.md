@@ -1,0 +1,3 @@
+The concept art for WildStar was absolutely stunning. The characters had just the right amount of quirkiness and colors were bright and saturated giving it this dystopian cartoon feel. The site design kept a good balance between being user friendly while maintaining the feel of the game. 
+
+I was managing the development team at the time and so I personally only wrote the technical specification document and the development tickets for the project. The project was completed on time and with very well written documentation, the studio was happy and well prepared to work our content management system.

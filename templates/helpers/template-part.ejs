@@ -1,0 +1,9 @@
+<%
+	templatePart = ( relativePath, data = {} ) => {
+		if ( typeof include === 'function' ) {
+			include( relativePath, data );
+		} else {
+			require( relativePath )( data );
+		}
+	}
+%>

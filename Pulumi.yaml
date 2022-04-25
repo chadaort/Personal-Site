@@ -1,0 +1,6 @@
+name: chadort
+description: A minimal AWS JavaScript Pulumi program
+runtime:
+    name: nodejs
+    options:
+        typescript: false

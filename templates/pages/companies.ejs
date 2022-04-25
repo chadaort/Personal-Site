@@ -1,0 +1,37 @@
+<%- include( '../helpers/img-utils' ) -%>
+<%- include( '../helpers/sorting' ) -%>
+
+<div id="main-content" class="content__main">
+	<div class="project-grid">
+		<% templateData.projects.forEach( project => { %>
+			<% const imgTreatmentClass = project.meta.disableImageTreatments ? 'disable-img-treatment' : '' %>
+			<div class="project-grid__item">
+				<div class="project-grid__item-wrapper">
+					<a
+						class="<%= buildContainerClass( [ 'project-grid__item-img-wrapper', imgTreatmentClass ] ); %>"
+						href="<%= `${ templateData.site.core.siteUrl }/${ project.post.publicPath }` %>"
+						tabindex="-1"
+					>
+						<img
+							class="project-grid__item-thumb"
+							src="<%= getSrc( project.meta.thumb, [ 972 ] ) %>"
+							srcset="<%= getSrcset( project.meta.thumb, [ 972 ] ) %>"
+							sizes="( min-width: 980px ) 50vw, 100vw"
+							alt="<%= project.post.title %>"
+						/>
+					</a>
+					<div class="project-grid__copy-wrapper">
+						<h3 class="project-grid__item-sub-title">30+ million monthly visitors</h3>
+						<h2 class="project-grid__item-title">
+							<a class="project-grid__item-title-link" href="<%= `${ templateData.site.core.siteUrl }/${ project.post.publicPath }` %>" tabindex="-1"><%= project.post.title %></a>
+						</h2>
+						<p class="project-grid__item-summary"><%= project.post.summary %></p>
+						<a class="project-grid__item-cta" href="<%= `${ templateData.site.core.siteUrl }/${ project.post.publicPath }` %>">Read More</a>
+					</div>
+				</div>
+			</div>
+		<% } ) %>
+	</div>
+</div>
+
+<div class="content__after"></div>

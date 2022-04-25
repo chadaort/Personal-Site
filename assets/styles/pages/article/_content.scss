@@ -1,0 +1,33 @@
+//
+// We clone the aside content to be an article sidebar on desktop and these styles support that.
+//
+.has-sidebar .content__main {
+	margin-bottom: 3rem;
+	padding-bottom: 3rem;
+	border-bottom: 1px solid var( --color__line-tertiary );
+
+	.aside-content { display: none }
+
+	@include media-query( $start: desktop-lg ) {
+		margin: 0;
+		padding: 0;
+		border-bottom: 0;
+
+		// Clearfix for the floated sidebar that's clone using JS.
+		// This prevents having to add additional containers.
+		&::after {
+			content: '.';
+			visibility: hidden;
+			display: block;
+			height: 0;
+			clear: both;
+		}
+
+		.aside-content {
+			margin-left: 55px;
+			max-width: 400px;
+			display: block;
+			float: right;
+		}
+	}
+}

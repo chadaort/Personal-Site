@@ -1,0 +1,44 @@
+//
+// Fluid vertical and horizontal images.
+//
+
+// Wider images.
+%img__x {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	image-rendering: -webkit-optimize-contrast;
+}
+
+// Taller images.
+%img__y {
+	max-height: 100%;
+	width: auto;
+	display: block;
+	image-rendering: -webkit-optimize-contrast;
+}
+
+// Provides a very light blackout over the image and removed on hover.
+%img__treatment-primary {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		box-shadow: inset 0 0 3rem 2rem rgba( $color__black-0, .25 );
+		transition: box-shadow 300ms;
+	}
+
+	&:hover::before {
+		box-shadow: 0;
+	}
+
+	.disable-img-treatment &::before,
+	&.disable-img-treatment::before {
+		display: none;
+	}
+}

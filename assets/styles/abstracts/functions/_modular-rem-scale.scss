@@ -1,0 +1,15 @@
+/// Returns the rem size based on the modular rem scale.
+/// @param {int} $position The size based on position within the modular scale
+/// @param {int} $base-size The base size to apply to the scale
+/// @return
+@function modular-rem-scale(
+	$position: 0,
+	$base-size: 16px,
+	$root-size: 16px,
+	$typography-scale: 1.250,
+	$pixel-size-variation: 6.25
+) {
+	$base-size-adjustment: ( ( ( strip-unit( $base-size ) - strip-unit( $root-size ) ) * $pixel-size-variation ) + 100 ) / 100;
+
+	@return ( poly-pow( $typography-scale, $position ) * $base-size-adjustment )+rem;
+}

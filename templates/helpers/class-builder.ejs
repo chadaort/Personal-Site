@@ -1,0 +1,38 @@
+<%
+	buildContainerClass = ( classNames ) => {
+		return classNames.filter( item => item ).join( ' ' ).trim();
+	}
+
+	buildBodyClass = ( templateData ) => {
+
+		const classes = [];
+
+		classes.push( `is-${ templateData.post.type }` );
+
+		if ( templateData.meta.config ) {
+			for ( const flag in templateData.meta.config ) {
+				if ( templateData.meta.config[ flag ] ) {
+					classes.push( flag );
+				}
+			}
+		}
+
+		if ( templateData.hasHero ) {
+			classes.push( 'has-hero' );
+
+			if ( templateData.hasFullPageHero ) {
+				classes.push( 'has-full-page-hero' );
+			}
+		}
+
+		if ( templateData.sidebar ) {
+			classes.push( 'has-sidebar' );
+		}
+
+		if ( templateData.featureImage || templateData.featureImageSet ) {
+			classes.push( 'has-page-feature' );
+		}
+
+		return classes.join( ' ' ).trim();
+	}
+%>

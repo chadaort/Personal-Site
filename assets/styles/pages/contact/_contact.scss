@@ -1,0 +1,29 @@
+@import './hero';
+@import './form';
+
+.is-contact {
+	.contact-section__form {
+		margin: 0 auto;
+		overflow: hidden;
+		background: $color__primary;
+	}
+}
+
+.contact-form__wrapper {
+	@extend %breakout-container;
+	// Using pixels because this ensures fixed size image is pushed down far enough.
+	padding-bottom: 200px;
+	background-color: var( --color__accent-primary );
+	background-image: url( '#{$site-url}/assets/images/bg-wave-light.png' );
+	background-size: 185% auto;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+
+	body[data-theme='dark'] & {
+		background-image: url( '#{$site-url}/assets/images/bg-wave-dark.png' );
+	}
+
+	@include media-query( $start: desktop ) {
+		background-size: 110% auto;
+	}
+}

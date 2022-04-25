@@ -1,0 +1,220 @@
+//
+// Timeline container.
+//
+
+.career-timeline {
+	position: relative;
+}
+
+.career-timeline__title-wrapper {
+	margin: 0;
+	text-align: center;
+}
+
+.career-timeline__title {
+	@include typography__style-a();
+	margin: 0 0 2em 0;
+}
+
+// Places each company on it's own row.
+.career-timeline__company {
+	padding-bottom: 4rem;
+	padding-left: 3.5rem;
+	position: relative;
+
+	// Creates to columns using even/odd selectors.
+	@include media-query( $start: desktop ) {
+		padding-left: 0;
+		width: 50%;
+
+		&:nth-child( odd ) {
+			margin-left: 0;
+			margin-right: auto;
+			padding-right: 3.45rem;
+		}
+
+		&:nth-child( even ) {
+			margin-left: auto;
+			margin-right: 0;
+			padding-left: 3.45rem;
+		}
+	}
+}
+
+// Creates a vertical timeline bar that aligns against the left-hand side of the screen.
+.career-timeline__company {
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: .6rem;
+		background-color: var( --color__secondary );
+	}
+
+	&:first-child::after { top: 1rem }
+	&:last-child::after { bottom: 5rem }
+
+	// Moves the timeline bar to the center of the screen, between company containers.
+	@include media-query( $start: desktop ) {
+		&:nth-child( odd )::after {
+			left: auto;
+			right: -5px;
+		}
+
+		&:nth-child( even )::after { left: -5px }
+	}
+}
+
+// Timeline item container include the triangle that points to a position on the timeline bar.
+.career-timeline__company-wrapper {
+	padding: 30px;
+	position: relative;
+	background: var( --color__bg-secondary );
+	border-radius: 5px;
+
+	&::before {
+		content: '';
+		margin-top: -10px;
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 50%;
+		left: -20px;
+		border-top: 10px solid transparent;
+		border-right: 20px solid var( --color__bg-secondary );
+		border-bottom: 10px solid transparent;
+
+		.career-timeline__company:first-child & {
+			margin-top: 0;
+			top: 20px
+		}
+
+		.career-timeline__company:last-child & {
+			margin-top: 0;
+			top: auto;
+			bottom: 20px;
+		}
+
+		@include media-query( $start: desktop ) {
+			.career-timeline__company:nth-child( odd ) & {
+				left: auto;
+				right: -20px;
+				border-right: 0;
+				border-left: 20px solid var( --color__bg-secondary );
+			}
+		}
+	}
+}
+
+// Timeline item dot that shows on the timeline bar.
+.career-timeline__bar-components:after {
+	content: '';
+	margin-top: -17.5px;
+	position: absolute;
+	top: 50%;
+	left: -67.5px;
+	width: 35px;
+	height: 35px;
+	z-index: 2;
+	background-color: var( --color__primary-light );
+	border: 8px solid var( --color__bg-primary );
+	border-radius: 50%;
+
+	.career-timeline__company:first-child & {
+		margin-top: auto;
+		top: 13px;
+	}
+
+	.career-timeline__company:last-child & {
+		top: auto;
+		bottom: 13px;
+	}
+
+	@include media-query( $start: desktop ) {
+		.career-timeline__company:nth-child( odd ) & {
+			left: auto;
+			right: -67.5px + -5;
+		}
+
+		.career-timeline__company:nth-child( even ) & { left: -67.5px + -5 }
+	}
+}
+
+.career-timeline__position {
+	font-size: var( --font__large );
+	margin: 0;
+	color: var( --color__primary-light );
+	font-weight: 600;
+}
+
+.career-timeline__dates {
+	margin-left: .5em;
+	display: inline-block;
+	color: var( --color__text-title-primary );
+	font-weight: 400;
+
+	// Moves the date to be adjacent whitespace and aligns it with the timeline item pointer.
+	@include media-query( $start: desktop ) {
+		--desktop-date-text-color: #{ $color__black-3 };
+
+		[data-theme='dark'] & {
+			--desktop-date-text-color: #{ $color__white-d }
+		}
+
+		// Ensure that the margin-top value is negative by multiplying times -1.
+		margin-top: calc( ( var( --font__scale-2 ) / 2 ) * -1 );
+		width: 100%;
+		display: block;
+		position: absolute;
+		top: 50%;
+		color: var( --desktop-date-text-color );
+		font-size: var( --font__scale-2 );
+		line-height: var( --font__scale-2 );
+
+		.career-timeline__company:first-child & {
+			margin-top: 0;
+			top: 1rem;
+		}
+
+		.career-timeline__company:last-child & {
+			margin-top: 0;
+			top: auto;
+			bottom: 1rem;
+		}
+
+		.career-timeline__company:nth-child( odd ) & {
+			right: calc( -100% + -3em );
+		}
+
+		.career-timeline__company:nth-child( even ) & {
+			left: calc( -100% + -3.5em );
+			text-align: right;
+		}
+	}
+}
+
+.career-timeline__company-name,
+.career-timeline__company-name-link {
+	@extend %typography-heading-3;
+	margin: 0;
+	color: var( --color__text-title-primary );
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.career-timeline__desc {
+	margin: .5em 0 0 0;
+	color: var( --color__text-title-primary );
+	font-size: var( --font__small);
+}
+
+.career-timeline__cta {
+	@extend %btn--primary-small;
+	margin-top: 1.3em;
+	color: var( --color__secondary-dark );
+	background-color: white;
+
+	&:hover { background-color: var( --color__secondary-light ) }
+}

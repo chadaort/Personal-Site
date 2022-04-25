@@ -1,0 +1,16 @@
+<h4 class="aside-content__title-wrapper">
+	<span class="aside-content__title">Other Projects</span>
+</h4>
+
+<div class="aside-content__list">
+	<ul class="aside-content__list-ul">
+		<% templateData.sidebar.forEach( item => { %>
+			<li class="aside-content__list-li">
+				<%- include( '../../partials/link-default', {
+					item,
+					classPrefix: 'aside-content__list-',
+				} ); %>
+			</li>
+		<% } ); %>
+	</ul>
+</div>

@@ -1,0 +1,21 @@
+// Builds the main navigation styles.
+//
+// @param {string} $prefix The placement specific class to use as the selector prefix.
+// @content Allows for scoped CSS variables to be defined.
+// @return
+@mixin title-with-subtitle( $prefix ) {
+	@content;
+
+	.#{ $prefix }-main {
+		margin: 0;
+		color: var( --color__primary );
+		font-size: var( --font__scale-1 );
+	}
+
+	.#{ $prefix }-sub {
+		margin: .35em 0 0 ;
+		color: var( --color__text-muted );
+		font-size: var( --font__xsmall );
+		text-transform: uppercase;
+	}
+}

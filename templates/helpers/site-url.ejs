@@ -1,0 +1,6 @@
+<%
+	siteUrl = ( path ) => {
+		path = path.substring( 0, '/'.length ) === '/' ? path : `/${ path }`;
+		return `${ templateData.site.core.siteUrl }/${ path }`;
+	}
+%>

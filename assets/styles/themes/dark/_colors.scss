@@ -1,0 +1,37 @@
+/* stylelint-disable declaration-colon-space-after */
+body[data-theme='dark'],
+.has-dark-bg {
+
+	// Logo
+	--color__logo-symbol: #ffffff;
+	--color__logo-text: #ffffff;
+
+	// Lines
+	--color__line-primary:   #{ $color__black-5 };
+	--color__line-secondary: #{ $color__black-4 };
+	--color__line-tertiary:  #{ $color__black-3 };
+
+	// Backgrounds
+	--color__bg-primary:   #{ $color__black-2 };
+	--color__bg-secondary: #{ $color__black-3 };
+	--color__bg-tertiary:  #{ $color__black-3 };
+
+	// Accents
+	--color__accent-primary: #{ $color__black-4 };
+
+	// Typography
+	--color__text-title-primary: #ffffff;
+	--color__text-title-secondary: #{ $color__white-d };
+	--color__text-body:            #{ $color__white-e };
+	--color__text-summary:         #{ $color__white-c };
+	--color__text-muted:           #{ $color__white-c };
+
+
+	--color__primary:      #66b9a9;
+	--color__primary-text: #69cab5;
+
+	--color__secondary: #eb5668;
+	--color__secondary-text: #eb5c6c;
+}
+
+/* stylelint-enable declaration-colon-space-after */

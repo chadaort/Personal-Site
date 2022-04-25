@@ -1,0 +1,9 @@
+My Aion was a player tool on the website that allowed players to create and customize their characters, find other players or guilds, and even chat with them. The project introduced authentication to the website where users could login with their player account. It was the first of many projects where we began fetching and saving game data. 
+
+This project came right after the Aion site launch and I was the sole developer on the project. Integrating authentication was probably the most challenging piece because it was being built while I was working on the project. It was an in-house like version of OAuth that was token based and so I conceptually understood how it should work but working through bugs on an external system being built can be challenging. 
+
+I considered a framework and even vanilla javascript but I ended up using jQuery because of the lack of consistency in how browsers implemented features along with backwards compatibility. Most of the styling for My Aion was already done during the Aion site project and the client-side JS handled the transitions and ajax calls to fetch the route data. There was a ton of data to map out for the display but the frontend was fairly light.
+
+The backend controllers for the page view and the API endpoints are written with server side javascript (Rhino javascript engine). Authentication had its own challenges that I already mentioned but the game API was not much easier. Games like Aion and Lineage 2 are developed in Seoul and then localized to work in different markets. That means we had to work with the development team in Seoul to implement any changes and had to factor that into the project schedule. 
+
+Internally this was an important project because Aion was why we started collaborating so much with the development team in Seoul. They wanted to have more input and we wanted more extensibility. In the end, everyone was satisfied with the end result and it was a popular user feature.

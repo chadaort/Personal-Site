@@ -1,0 +1,18 @@
+.icon__toggle {
+
+	.icon__toggle-rect {
+		fill: #555;
+	}
+
+	.icon__toggle-circle {
+		fill: #F8BB00;
+	}
+
+	&.icon__toggle--on {
+
+		.icon__toggle-circle {
+			transform: translate( 1.2em, 0 );
+			fill: $color__primary-light;
+		}
+	}
+}

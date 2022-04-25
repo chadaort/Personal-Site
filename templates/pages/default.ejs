@@ -1,0 +1,65 @@
+<%- include( '../helpers/img-utils' ) -%>
+
+<div id="main-content" class="content__main">
+
+	<% if ( 'project' === templateData.post.type || 'company' === templateData.post.type ) { %>
+		<nav class="article__utility">
+			<ul class="article__utility-ul">
+				<li class="article__utility-li">
+					<% if ( templateData.meta.displayDate ) { %>
+						<%= templateData.meta.displayDate %>
+					<% } else { %>
+						<%= templateData.post.date %>
+					<% } %>
+				</li>
+				<% if ( templateData.meta.highlight ) { %>
+					<li class="article__utility-li">
+						<span class="article__utility-highlight"><%= templateData.meta.highlight %> </span>
+						monthly visitors
+					</li>
+				<% } %>
+				<% if ( templateData.meta.projectUrl ) { %>
+					<li class="article__utility-li article__utility-cta">
+						<a class="article__utility-btn" href="<%= templateData.meta.projectUrl %>">View Project</a>
+					</li>
+				<% } %>
+
+			</ul>
+		</nav>
+	<% } %>
+
+	<div class="article__body">
+		<%- templateData.post.body %>
+	</div>
+
+	<% if ( 'project' === templateData.post.type ) { %>
+		<div class="article__cta">
+			<a class="article__cta-btn" href="<%= templateData.meta.projectURL %>">
+				<%= templateData.meta.projectStillActive ? 'View Project' : 'View Property' %>
+			</a>
+		</div>
+	<% } %>
+
+	<% if ( 'project' === templateData.post.type && templateData.meta.featureImageSet && templateData.meta.featureImageSet.length > 2 ) { %>
+		<% const extraScreens = templateData.meta.featureImageSet.slice( 2, templateData.meta.featureImageSet.length ); %>
+		<div class="article__extra-screens" data-screen-count="<%= extraScreens.length %>">
+
+			<div class="article__extra-screens-heading">
+				<h3 class="article__extra-screens-heading-main">Additional Project Views</h3>
+				<h4 class="article__extra-screens-heading-sub">More project screens</h4>
+			</div>
+			<ul class="article__extra-screens-ul has-dark-bg">
+				<% extraScreens.forEach( screen => { %>
+					<li class="article__extra-screens-li">
+						<a class="article__extra-screens-a" href="#">
+							<i class="icon icon--sm icon--circle icon--screenshot"></i>
+							<img class="article__extra-screens-img" src="<%= getSrc( screen.src, [972] ) %>" alt="<%= screen.alt %>" />
+						</a>
+					</li>
+				<% } ) %>
+			</ul>
+
+		</div>
+	<% } %>
+
+</div>

@@ -1,0 +1,108 @@
+.aside-content {
+
+
+
+}
+
+.aside-content__title-wrapper {
+	margin: 0 0 1em;
+}
+
+.aside-content__title {
+	@include typography__style-a();
+}
+
+.aside-content__list {
+	@include internal-link( aside-content__list- );
+}
+
+.aside-content__list--img-wrapper {
+	@extend %img__treatment-primary;
+	margin-left: -( gutter( 'frame' ) );
+	margin-right: -( gutter( 'frame' ) );
+	display: block;
+
+	@include media-query( $start: tablet ) {
+		margin-left: -( gutter( 'frame', 'tablet' ) );
+		margin-right: -( gutter( 'frame', 'tablet' ) );
+	}
+
+	@include media-query( $start: desktop ) {
+		margin-left: -( gutter( 'frame', 'desktop' ) );
+		margin-right: -( gutter( 'frame', 'desktop' ) );
+	}
+
+	@include media-query( $start: desktop-lg ) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+$company-border-width: 7px;
+
+.company-link__item {
+
+}
+
+.company-link__a {
+	margin: 0 0 1rem;
+	display: block;
+	position: relative;
+	transition: border-color 250ms;
+	border: $company-border-width solid #e3e3e3;
+
+	&::after {
+		content: '';
+		width: 1.25rem;
+		height: 1.25rem;
+		position: absolute;
+		bottom: -( $company-border-width );
+		left: -( $company-border-width );
+		background: var( --color__bg-primary );
+	}
+
+	&:hover { border-color: var( --color__secondary-light ) }
+}
+
+.company-link__name {
+	margin: 0;
+	padding: 3rem 0;
+	display: block;
+	color: #333;
+	font-family: $typography__font-heading;
+	font-size: var( --font__scale-4 );
+	font-weight: 900;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.company-link__details {
+	margin: 0 .4rem;
+}
+
+.company-link__type {
+	@extend %typography-heading-6--cap;
+	margin: 0;
+	padding: 2px 0 .35rem 1.2rem;
+	position: absolute;
+	top: -( $company-border-width );
+	right: -( $company-border-width );
+	transition: color 200ms;
+	color: var( --color__secondary );
+	font-weight: 700;
+	background: var( --color__bg-primary );
+
+	.company-link__a:hover & { color: var( --color__primary-text ) }
+}
+
+.company-link__summary {
+	margin: 0;
+	color: var( --color__text-summary );
+	font-size: 1rem;
+	line-height: 1.55;
+}
+
+.company-link__cta {
+	@extend %btn--outline-primary-small;
+	margin-top: 1rem;
+}

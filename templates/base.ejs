@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<%- include( './helpers/class-builder' ) -%>
+	<head><%- include( 'main/head' ) %></head>
+	<scrip>
+
+	</scrip>
+	<body class="<%= buildBodyClass( templateData ) %>">
+
+		<script>
+			if ( window.localStorage.getItem( 'theme' ) )	{
+				document.body.setAttribute( 'data-theme', window.localStorage.getItem( 'theme' ) );
+			} else if ( window.matchMedia( '(prefers-color-scheme: dark)' ) ) {
+				document.body.setAttribute( 'data-theme', 'dark' );
+			}
+		</script>
+
+		<div class="site__frame-wrapper">
+			<div id="site-frame" class="site__frame">
+
+				<%- include( 'main/utility-nav' ) %>
+
+				<div class="site__contents">
+
+					<%- include( 'main/header' ) %>
+
+					<main class='main'>
+
+						<% if ( templateData.meta.hasHero ) { %>
+							<div class="page-hero">
+								<% if ( 'home' === templateData.post.type ) { %>
+									<%- include( 'pages/home/hero' ) %>
+								<% } else if ( 'contact' === templateData.post.type ) { %>
+									<%- include( 'pages/contact/hero' ) %>
+								<% } %>
+							</div>
+						<% } %>
+
+						<article role="article">
+
+							<% if ( ! templateData.meta.disablePageHeading ) { %>
+								<div class="page-heading">
+									<% if ( templateData.meta.subtitle ) { %>
+										<h2 class="page-heading__subtitle"><%= templateData.meta.subtitle %></h2>
+									<% } %>
+
+									<% if ( templateData.post.title ) { %>
+										<h1 class="page-heading__title"><%= templateData.post.title %></h1>
+									<% } %>
+								</div>
+							<% } %>
+
+							<div class="page-feature">
+								<%- include( 'partials/feature-image' ) %>
+							</div>
+
+							<div class="page-content">
+								<% if ( templateData.post.type === 'home' ) { %>
+									<%- include( 'pages/home/index' ) %>
+								<% } else if ( templateData.post.type === 'about' ) { %>
+									<%- include( 'pages/about' ) %>
+								<% } else if ( templateData.post.type === 'projects' ) { %>
+									<%- include( 'pages/projects' ) %>
+								<% } else if ( templateData.post.type === 'companies' ) { %>
+									<%- include( 'pages/companies' ) %>
+								<% } else if ( templateData.post.type === 'blog-posts' ) { %>
+									<%- include( 'pages/blog' ) %>
+								<% } else if ( templateData.post.type === 'contact' ) { %>
+									<%- include( 'pages/contact/index' ) %>
+								<% } else { %>
+									<%- include( 'pages/default' ) %>
+								<% } %>
+							</div>
+						</article>
+					</main>
+
+					<% if ( templateData.sidebar ) { %>
+						<aside id="aside-content" class="aside-content" role="complementary">
+							<% if ( templateData.post.type === 'project' ) { %>
+								<%- include( 'main/content-aside/projects' ) -%>
+							<% } else if ( templateData.post.type === 'company' ) { %>
+								<%- include( 'main/content-aside/companies' ) %>
+							<% } else if ( templateData.post.type === 'blog' ) { %>
+								<%- include( 'main/content-aside/blog' ) %>
+							<% } %>
+						</aside>
+					<% } %>
+
+					<%- include( 'main/footer' ) %>
+
+				</div>
+			</div>
+		</div>
+		<%- include( 'main/scripts' ) %>
+	</body>
+</html>

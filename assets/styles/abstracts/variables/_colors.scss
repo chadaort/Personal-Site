@@ -1,0 +1,62 @@
+$color__primary:             #2f9986;
+$color__primary-light:       #ade7de;
+$color__primary-dark:        #2f9986;
+$color__primary-text:        #2f9986;
+$color__primary-text-dark:   #2f9986;
+$color__secondary:           #f16b7a;
+$color__secondary-light:     #f8909b;
+$color__secondary-dark:      #cf4251;
+$color__secondary-text:      #cf4251;
+$color__secondary-text-dark: #cf4251;
+$color__tertiary:            #ffd531;
+$color__tertiary-light:      #ffca6c;
+$color__tertiary-dark:       #ffca6c;
+$color__tertiary-text:       #ffca6c;
+$color__tertiary-text-dark:  #ffca6c;
+
+$color-dark-bg__secondary: #ff6374;
+
+// White shades
+$color__white-f: #ffffff;
+$color__white-e: #ececec;
+$color__white-d: #dddddd;
+$color__white-c: #cccccc;
+$color__white-b: #bbbbbb;
+$color__white-a: #aaaaaa;
+
+// Black shades
+$color__black-0: #000000;
+$color__black-1: #1c1c1c;
+$color__black-2: #2c2c2c;
+$color__black-3: #3c3c3c;
+$color__black-4: #444444;
+$color__black-5: #555555;
+$color__black-6: #666666;
+$color__black-7: #777777;
+$color__black-8: #8c8c8c;
+
+$color__divider-primary:                #{ $color__white-d };
+$color__divider-secondary:              #{ $color__white-e };
+$color__background-primary:             #{ $color__white-f };
+$color__title-primary:                  #{ $color__black-2 };
+$color__title-secondary:                #{ $color__black-3 };
+$color__text-body:                      #{ $color__black-3 };
+$color__text-summary:                   #{ $color__black-4 };
+$color__text-muted:                     #{ $color__black-6 };
+$color__btn-primary-color-grayscale:    #{ $color__black-5 };
+$color__btn-primary-border-grayscale:   #{ $color__black-7 };
+$color__btn-secondary-color-grayscale:  #{ $color__black-4 };
+$color__btn-secondary-border-grayscale: #{ $color__black-6 };
+
+$color__darkbg-divider-primary:                #{ $color__black-4 };
+$color__darkbg-divider-secondary:              #{ $color__white-e };
+$color__darkbg-background-primary:             #{ $color__white-f };
+$color__darkbg-title-primary:                  #{ $color__black-2 };
+$color__darkbg-title-secondary:                #{ $color__black-3 };
+$color__darkbg-text-body:                      #{ $color__black-3 };
+$color__darkbg-text-summary:                   #{ $color__black-4 };
+$color__darkbg-text-muted:                     #{ $color__black-6 };
+$color__darkbg-btn-primary-color-grayscale:    #{ $color__black-5 };
+$color__darkbg-btn-primary-border-grayscale:   #{ $color__black-7 };
+$color__darkbg-btn-secondary-color-grayscale:  #{ $color__black-4 };
+$color__darkbg-btn-secondary-border-grayscale: #{ $color__black-6 };

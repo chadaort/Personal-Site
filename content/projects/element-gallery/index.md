@@ -1,0 +1,1 @@
+This was a personal project that never got off the ground but I created a nice coming soon design using a chalkboard-like background with email signup and a progress indicator. It was a fun design that I found in my archive that I would share.

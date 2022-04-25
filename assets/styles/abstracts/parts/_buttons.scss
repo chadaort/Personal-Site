@@ -1,0 +1,126 @@
+//
+// Site buttons exposed as placeholders.
+//
+
+:root {
+	--color__btn-primary-color-grayscale: #{ $color__black-3 };
+	--color__btn-primary-border-grayscale: #{ $color__black-5 };
+	--color__btn-secondary-color-grayscale: #{ $color__black-4 };
+	--color__btn-secondary-border-grayscale: #{ $color__black-7 };
+}
+
+body[data-theme='dark'],
+.has-dark-bg {
+	--color__btn-primary-color-grayscale: #{ $color__white-d };
+	--color__btn-primary-border-grayscale: #{ $color__btn-primary-border-grayscale };
+	--color__btn-secondary-color-grayscale: #d3d3d3;
+	--color__btn-secondary-border-grayscale: #999999;
+}
+
+//
+// Default styles.
+//
+%btn--primary,
+%btn--primary-small,
+%btn--primary-large,
+%btn--secondary,
+%btn--secondary-small,
+%btn--secondary-large,
+%btn--outline-primary,
+%btn--outline-primary-small,
+%btn--outline-primary-large,
+%btn--outline-secondary,
+%btn--outline-secondary-small,
+%btn--outline-secondary-large {
+	display: inline-block;
+	font-family: $typography__font-heading;
+	font-weight: 500;
+	text-decoration: none;
+	text-transform: uppercase;
+	border: 2px solid transparent;
+	border-radius: 999px;
+	transition: background-color 300ms, color 300ms, border-color 200ms;
+}
+
+//
+// Size variations.
+//
+%btn--primary,
+%btn--secondary,
+%btn--outline-primary,
+%btn--outline-secondary {
+	padding: 10px 21px;
+	font-size: var( --font__btn );
+	line-height: var( --font__btn );
+}
+
+%btn--primary-small,
+%btn--secondary-small,
+%btn--outline-primary-small,
+%btn--outline-secondary-small {
+	padding: 7px 20px;
+	font-size: var( --font__btn-small );
+	line-height: var( --font__btn-small );
+}
+
+%btn--primary-large,
+%btn--secondary-large,
+%btn--outline-primary-large,
+%btn--outline-secondary-large {
+	padding: 12px 25px;
+	font-size: var( --font__btn-large );
+	line-height: var( --font__btn-large );
+}
+
+//
+// Style variations.
+//
+%btn--primary,
+%btn--primary-small,
+%btn--primary-large {
+	color: $color__white-f;
+	background-color: var( --color__secondary );
+
+	&:hover {
+		color: $color__white-f;
+		background-color: var( --color__secondary-dark );
+	}
+}
+
+%btn--secondary,
+%btn--secondary-small,
+%btn--secondary-large {
+	color: var( --color__white-f );
+	background-color: #444;
+
+	&:hover {
+		color: white;
+		background-color: #444;
+	}
+}
+
+%btn--outline-primary,
+%btn--outline-primary-small,
+%btn--outline-primary-large {
+	color: var( --color__btn-primary-color-grayscale );
+	border-color: var( --color__btn-primary-border-grayscale );
+
+	&:hover {
+		color: $color__white-f;
+		background-color: var( --color__secondary-dark );
+		border-color: var( --color__secondary );
+	}
+}
+
+%btn--outline-secondary,
+%btn--outline-secondary-small,
+%btn--outline-secondary-large {
+	color: var( --color__btn-secondary-color-grayscale );
+	border-color: var( --color__btn-secondary-border-grayscale );
+
+	&:hover {
+		color: $color__white-f;
+		background-color: var( --color__secondary );
+		border-color: var( --color__secondary );
+	}
+}

@@ -1,0 +1,58 @@
+<%- include( '../helpers/img-utils' ) -%>
+
+<% if ( templateData.meta.featureImage || templateData.meta.featureImageSet ) { %>
+
+	<div class="page-feature__wrapper">
+
+		<% if ( templateData.meta.featureImage ) { %>
+			<div class="page-feature__img-wrapper<%= templateData.meta.disableImageTreatments ? ' no-img-treatment' : '' %>">
+				<img
+					class="page-feature__img"
+					src="<%= getSrc( templateData.meta.featureImage.src, [ 1280 ] ) %>"
+					srcset="<%= getSrcsetNew(
+						templateData.meta.featureImage.path,
+						templateData.meta.featureImage.filePrefix,
+						templateData.meta.featureImageSizes ? templateData.meta.featureImageSizes : false
+					) %>"
+					alt="<%= templateData.meta.featureImage.alt %>"
+				/>
+				<% if ( templateData.content && templateData.content.afterFeaturedImage ) { %>
+					<%- templateData.content.afterFeaturedImage() %>
+				<% } %>
+			</div>
+		<% } else if ( templateData.meta.featureImageSet ) { %>
+			<div class="page-feature__set has-dark-bg">
+
+				<% for ( let i = 0; i < 3; i++ ) { %>
+
+					<% const hasImg = templateData.meta.featureImageSet[ i ]; %>
+
+					<div class="page-feature__img-wrapper<%= ! hasImg ? ' page-feature__img-wrapper-empty' : '' %>">
+						<% if ( hasImg ) { %>
+							<a
+								data-lightbox-img="<%= `${ templateData.site.core.siteUrl }/${ templateData.meta.featureImageSet[ i ].raw }` %>"
+								class="page-feature__img-link"
+								href="#"
+							>
+								<img
+									class="page-feature__img"
+									src="<%= getSrc( templateData.meta.featureImageSet[ i ].src, [972] ) %>"
+									alt="<%= templateData.meta.featureImageSet[ i ].alt %>"
+								/>
+								<span class="page-feature__hover-bg"></span>
+								<i class="page-feature__img-signal icon icon--circle icon--screenshot"></i>
+							</a>
+							<a id="pic1" class="lightbox" href="#">
+								<span style="background-image: url( '<%= getSrc( templateData.meta.featureImageSet[ i ].src, [972] ) %>' )"></span>
+							</a>
+						<% } else { %>
+							<span class="page-feature__img-empty"></span>
+						<% } %>
+					</div>
+
+				<% } %>
+			</div>
+		<% } %>
+
+	</div>
+<% } %>

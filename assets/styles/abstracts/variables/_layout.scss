@@ -1,0 +1,22 @@
+$device-breakpoints: (
+	mobile:  320px,
+	mobile-lg: 480px,
+	tablet:  740px,
+	tablet-lg: 880px,
+	desktop: 980px,
+	desktop-lg: 1100px,
+	wide:    1400px,
+);
+
+// Gutter margins
+$gutters: (
+	frame: (
+		mobile: 20px,
+		tablet: 25px,
+		desktop: 30px,
+		wide: 35px,
+	),
+);
+
+$header-height-desktop: 80px;
+$utility-bar-height:    32px;

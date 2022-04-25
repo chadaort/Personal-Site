@@ -1,0 +1,94 @@
+//
+// Utility bar used in the chrome.
+//
+
+$utility-bar-height: 32px;
+
+.utility-bar {
+	--utility-bar__background-color: #{ $color__black-2 };
+
+	body[data-theme='dark'] & {
+		--utility-bar__background-color: #{ $color__black-1 };
+	}
+
+	@extend %breakout-container;
+	background: var( --utility-bar__background-color );
+	display: none;
+	height: $utility-bar-height;
+
+	//@include media-query( $start: desktop ) {
+		display: block;
+	//}
+}
+
+.utility-bar__wrapper {
+	@extend %site-frame-wrapper;
+}
+
+.utility-bar__contents {
+	position: relative;
+	height: inherit;
+	display: flex;
+
+	&:after {
+		margin-left: 100%;
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: calc( ( 100vw - 100% ) / 2 );
+		background: var( --color__primary );
+	}
+}
+
+.utility-bar__left {
+	padding-right: 20px;
+	flex: 1;
+	text-align: right;
+	line-height: $utility-bar-height;
+}
+
+.utility-bar__right {
+	padding-left: 15px;
+	background: var( --color__primary );
+}
+
+.utility-bar__project-link {
+	// Using a float over inline-block to prevent white-space issues.
+	float: right;
+	vertical-align: middle;
+	color: var( --color__text-title-secondary );
+	font-size: var( --font__xxsmall );
+	font-weight: 600;
+	line-height: $utility-bar-height;
+	text-transform: uppercase;
+
+	.utility-bar__github-logo-svg {
+		margin-left: 3px;
+		position: relative;
+		top: 1px;
+		height: var( --font__xxsmall );
+	}
+
+	.utility-bar__github-logo {
+		fill: var( --color__text-title-primary );
+	}
+
+	&:hover,
+	&:hover .utility-bar__github-logo {
+		color: var( --color__secondary-text );
+	}
+}
+
+.utility-bar__toggle {
+	@include theme-toggle() {
+		.utility-bar & {
+			--theme-toggle-height: 21px;
+			--theme-toggle-width: 44px;
+			--theme-toggle-rect-color: white;
+			--theme-toggle-circle-color: #ffc947;
+		}
+	};
+	width: 36px;
+	line-height: $utility-bar-height;
+}

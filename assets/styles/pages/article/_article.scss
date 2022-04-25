@@ -1,0 +1,216 @@
+@import './content';
+@import './feature';
+
+//
+// Article page utility navigation.
+//
+.article__utility {
+	margin: 1rem 0 1.5rem;
+	padding: 0 0 1.35rem;
+	position: relative;
+	color: var( --color__text-muted );
+	font-size: var( --font__scale-0 );
+	//border-bottom: 1px solid var( --color__line-secondary);
+
+	&:after {
+		content: '';
+		height: 1px;
+		position: absolute;
+		bottom: 0;
+		left: -20px;
+		right: 0px;
+		background: var( --color__line-secondary);
+	}
+}
+
+.article__utility-highlight {
+	margin-right: 5px;
+	color: var( --color__primary-text );
+	font-weight: 600;
+}
+
+.article__utility-ul {
+	margin: 0;
+	padding: 0 1.15rem 0;
+	display: inline-flex;
+	position: relative;
+	list-style-type: none;
+
+	&:before {
+		content: '';
+		width: .4rem;
+		position: absolute;
+		top: -2px;
+		bottom: -2px;
+		left: 0;
+		background: var( --color__accent-primary );
+	}
+}
+
+.article__utility-li {
+	padding: 0 15px;
+	position: relative;
+	float: left;
+	display: inline-flex;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 1px;
+		background: var( --color__line-primary );
+	}
+
+	&:first-child {
+		padding-left: 0;
+
+		&:before { display: none }
+	}
+
+	&:last-child { padding-right: 0 }
+}
+
+// We show this in the post body till tablet-lg.
+.article__utility-cta {
+	display: none;
+
+	@include media-query( $start: tablet-lg ) {
+		display: block;
+	}
+}
+
+.article__utility-btn {
+	@extend %btn--primary-small;
+}
+
+//
+// Content area styles.
+//
+.article__body {
+	overflow: auto;
+
+	& > :first-child {
+		margin-top: 0;
+	}
+}
+
+.article__cta {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	@include media-query( $start: tablet-lg ) {
+		display: none;
+	}
+}
+
+.article__cta-btn {
+	@extend %btn--primary;
+}
+
+//
+// Depending on the screen count, we may show extra screen below the post body.
+//
+.article__extra-screens-heading {
+	@include title-with-subtitle( content__extra-screens-heading );
+	margin-top: 1.75rem;
+}
+
+// Hide the extra screen section when there is only 1 screen. This accounts for when there is a single screen
+// on mobile but nothing to display on > tablet.
+@include media-query( $start: tablet ) {
+	.article__extra-screens[data-screen-count='1'] {
+		display: none;
+	}
+}
+
+.article__extra-screens-ul {
+	margin: 17px 0 0 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+}
+
+.article__extra-screens-li {
+	margin-right: 25px;
+	flex: 0 0 150px;
+
+	&:last-child { margin-right: 0 }
+
+	@include media-query( $start: tablet ) {
+		&:first-child { display: none }
+	}
+}
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: var( --color__text-primary );
+	line-height: 1em;
+
+	&.icon--sm {
+		width: .9em;
+		height: .9em;
+	}
+}
+
+.icon--circle {
+	padding: .5rem;
+	width: 2.25rem;
+	height: 2.25rem;
+	line-height: 0;
+	fill: #{ $color__white-f };
+	background-color: #{ $color__black-3 };
+	border-radius: 50%;
+
+	&:hover {
+		fill: var( --color__secondary-text-dark );
+	}
+
+	&.icon--sm {
+		padding: .45rem;
+		width: 1.75rem;
+		height: 1.75rem;
+	}
+
+	body[data-theme='dark'] &,
+	.has-dark-bg & {
+		fill: #{ $color__black-3 };
+		background-color: #{ $color__white-f };
+	}
+}
+
+.article__extra-screens-a {
+	display: block;
+	max-width: 160px;
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		opacity: 0;
+		pointer-events: none;
+		background-color: rgba( black, .35 );
+		transition: opacity 250ms;
+	}
+
+	.icon {
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		z-index: 9;
+	}
+
+	&:hover:after { opacity: 1 }
+
+	&:hover .icon { fill: var( --color__secondary-dark ) }
+}
+
+.article__extra-screens-img { @extend %img__x }

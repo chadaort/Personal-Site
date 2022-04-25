@@ -1,0 +1,29 @@
+<% if ( classPrefix ) { %>
+	<% const imgTreatmentClass = item.meta.disableImageTreatments ? 'disable-img-treatment' : ''; %>
+	<div class="<%= classPrefix %>item">
+
+		<% if ( item.meta.thumb ) { %>
+			<a
+				class="<%= buildContainerClass( [ `${classPrefix}-img-wrapper`, imgTreatmentClass ] ); %>"
+				data-test
+				href="<%= `${ templateData.site.core.siteUrl }/${ item.rootPath }` %>"
+			>
+				<img
+					class="<%= classPrefix %>img"
+					src="<%= getSrc( item.meta.thumb, [ 972 ] ) %>"
+					srcset="<%= getSrcset( item.meta.thumb, [ 972 ] ) %>"
+					sizes="( min-width: 980px ) 50vw, 100vw"
+					alt="<%= item.post.title %>"
+				/>
+			</a>
+		<% } %>
+
+		<div class="<%= classPrefix %>details">
+			<h3 class="<%= classPrefix %>title">
+				<a class="<%= classPrefix %>title-a" href="#"><%= item.post.title %></a>
+			</h3>
+			<p class="<%= classPrefix %>summary"><%= item.post.summary %></p>
+			<a class="<%= classPrefix %>cta" href="<%= `${ templateData.site.core.siteUrl }/${ item.publicPath }` %>">Read More</a>
+		</div>
+	</div>
+<% } %>

@@ -1,0 +1,45 @@
+//
+// Styles related to any container used to frame the sites structure.
+//
+
+.site__frame-wrapper {
+	height: 100%;
+	max-width: 100%;
+}
+
+.site__frame {
+	@extend %site-frame-wrapper;
+	opacity: 1;
+	transition: opacity 500ms ease 400ms;
+
+	&.site__frame--transitioning {
+		opacity: 0;
+	}
+}
+
+.site__contents {
+	position: relative;
+	// x-justify-content: space-around;
+}
+
+.page-hero,
+.page-heading,
+.page-feature {
+	flex: 0 0 100%;
+}
+
+.page-hero {
+	@extend %breakout-container;
+}
+
+.page-content {
+	flex: 1;
+}
+
+.aside-content {
+	flex: 0 0 100%;
+
+	@include media-query( $start: desktop-lg ) {
+		display: none;
+	}
+}

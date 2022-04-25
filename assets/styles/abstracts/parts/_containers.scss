@@ -1,0 +1,52 @@
+//
+// Site container styles.
+//
+
+%breakout-container {
+	width: 100vw;
+
+	@include media-query( $end: tablet ) {
+		margin-left: -( gutter( frame ) );
+		margin-right: -( gutter( frame ) );
+	}
+
+	@include media-query( $start: tablet, $end: desktop ) {
+		margin-left: -( gutter( frame, tablet ) );
+		margin-right: -( gutter( frame, tablet ) );
+	}
+
+	@include media-query( $start: desktop, $end: wide ) {
+		margin-left: -( gutter( frame, desktop ) );
+		margin-right: -( gutter( frame, desktop ) );
+	}
+
+	@include media-query( $start: wide ) {
+		margin-left: calc( ( -100vw + #{ map-get( $device-breakpoints, wide ) - ( gutter( frame, wide ) * 2 ) } ) / 2 );
+		margin-right: calc( ( -100vw + #{ map-get( $device-breakpoints, wide ) - ( gutter( frame, wide ) * 2 ) } ) / 2 );
+	}
+}
+
+%site-frame-wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: gutter( frame );
+	padding-right: gutter( frame );
+	height: inherit;
+	min-height: 100%;
+	max-width: map-get( $device-breakpoints, wide );
+
+	@include media-query ( $start: tablet ) {
+		padding-left: gutter( frame, 'tablet' );
+		padding-right: gutter( frame, 'tablet' );
+	}
+
+	@include media-query ( $start: desktop ) {
+		padding-left: gutter( frame, 'desktop' );
+		padding-right: gutter( frame, 'desktop' );
+	}
+
+	@include media-query ( $start: wide ) {
+		padding-left: gutter( frame, 'wide' );
+		padding-right: gutter( frame, 'wide' );
+	}
+}

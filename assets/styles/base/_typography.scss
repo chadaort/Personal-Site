@@ -1,0 +1,22 @@
+/*
+ * Global typographic styles.
+ */
+
+body,
+button {
+	color: var( --color__text-body );
+	font-family: $typography__font-base;
+	font-weight: 300;
+	line-height: 1.55;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1 { @extend %typography-heading-1 }
+h2 { @extend %typography-heading-2 }
+h3 { @extend %typography-heading-3 }
+h4 { @extend %typography-heading-4 }
+h5 { @extend %typography-heading-5 }
+h6 { @extend %typography-heading-6 }
+
+small { @extend %small-text }

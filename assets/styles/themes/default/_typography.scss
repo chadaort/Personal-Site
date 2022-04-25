@@ -1,0 +1,62 @@
+@debug '--------------------------------------';
+@debug '#{ modular-rem-scale( 0, 16px ) }';
+@debug '#{ modular-rem-scale( 1, 16px ) }';
+@debug '#{ modular-rem-scale( 2, 16px ) }';
+@debug '#{ modular-rem-scale( 3, 16px ) }';
+@debug '#{ modular-rem-scale( 4, 16px ) }';
+@debug '#{ modular-rem-scale( 5, 16px ) }';
+@debug '#{ modular-rem-scale( 6, 16px ) }';
+@debug '--------------------------------------';
+
+@mixin set-font-size-vars( $font-size ) {
+	:root {
+
+		// Font sizes based on major thirds.
+		--font__scale-6: #{ modular-rem-scale( 6, $font-size ) };
+		--font__scale-5: #{ modular-rem-scale( 5, $font-size ) };
+		--font__scale-4: #{ modular-rem-scale( 4, $font-size ) };
+		--font__scale-3: #{ modular-rem-scale( 3, $font-size ) };
+		--font__scale-2: #{ modular-rem-scale( 2, $font-size ) };
+		--font__scale-1: #{ modular-rem-scale( 1, $font-size ) };
+		--font__scale-0: #{ modular-rem-scale( 0, $font-size ) };
+		--font__scale--1: #{ modular-rem-scale( -1, $font-size ) };
+		--font__scale--2: #{ modular-rem-scale( -2, $font-size ) };
+
+		// Small font sizes used sparingly.
+		--font__small: #{ modular-rem-scale( -.35, $font-size ) };
+		--font__xsmall: #{ modular-rem-scale( -.65, $font-size ) };
+		--font__xxsmall: #{ modular-rem-scale( -1.5, $font-size ) };
+		--font__large: #{ modular-rem-scale( .5, $font-size ) };
+
+		--font__size-small: #{ modular-rem-scale( -.35, $font-size ) };
+		--font__size-xsmall: #{ modular-rem-scale( -.65, $font-size ) };
+		--font__size-xxsmall: #{ modular-rem-scale( -1.5, $font-size ) };
+		--font__size-large: #{ modular-rem-scale( .5, $font-size ) };
+		--font__size-xlarge: #{ modular-rem-scale( 1.5, $font-size ) };
+		--font__size-large: #{ modular-rem-scale( 2.5, $font-size ) };
+
+		// Button sizes
+		--font__btn-small: #{ modular-rem-scale( -1.5, $font-size ) };
+		--font__btn: #{ modular-rem-scale( -.9, $font-size ) };
+		--font__btn-large: #{ modular-rem-scale( -.2, $font-size ) };
+	}
+}
+
+
+// Mobile
+@include media-query( $end: tablet ) { @include set-font-size-vars( 16 ) }
+
+// High resolution mobile
+@include media-query( $end: tablet, $high-density: true ) { @include set-font-size-vars( 17 ) }
+
+// Tablet & desktop
+@include media-query( $start: tablet, $end: wide ) { @include set-font-size-vars( 18 ) }
+
+// High resolution desktop
+@include media-query( $start: desktop, $end: wide, $high-density: true ) { @include set-font-size-vars( 19 ) }
+
+// Wide
+@include media-query( $start: wide ) { @include set-font-size-vars( 19 ) }
+
+// High resolution wide
+@include media-query( $start: wide, $high-density: true ) { @include set-font-size-vars( 20 ) }

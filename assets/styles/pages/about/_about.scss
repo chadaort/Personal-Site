@@ -1,0 +1,59 @@
+@import './timeline';
+
+.about-page {
+	margin-bottom: 2.5rem;
+	padding-bottom: 2.5rem;
+	border-bottom: 1px solid var( --color__line-secondary );
+}
+
+.about-page__content,
+.about-page__aside {
+	margin: 0 auto;
+}
+
+// On desktop place the aside content in a sidebar.
+@include media-query( $start: desktop ) {
+	.about-page {
+		display: flex;
+		flex-flow: row wrap;
+		width: 100%;
+	}
+
+	.about-page__content,
+	.about-page__aside {
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-between;
+	}
+
+	.about-page__aside { flex: 0 0 400px }
+
+	.about-page__content {
+		margin-right: 50px;
+		flex: 1;
+	}
+}
+
+// Styles images in a grid of 3 columns per row.
+.about-page__pics {
+	padding-left: 0;
+	display: grid;
+	grid-template-columns: repeat( 3, 1fr );
+	grid-gap: 0;
+	list-style-type: none;
+
+	// Makes the image grid conform to a max-width of 400px.
+	// The grid is two columns per row except on the first row which a single column.
+	@include media-query( $start: desktop ) {
+		max-width: 400px;
+		grid-template-columns: repeat( 2, 1fr );
+		grid-gap: 1rem;
+		grid-row-gap: .5rem;
+
+		& :first-child { grid-column: 1 / -1 }
+	}
+}
+
+.about-page__pics-li { overflow: hidden }
+.about-page__pics-a { display: block }
+.about-page__pics-img { @extend %img__x }
