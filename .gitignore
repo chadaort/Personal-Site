@@ -5,3 +5,4 @@ Pulumi.*.yaml
 yarn-error.log
 /assets/asset-manifest.json
 /_asset-sources/
+.DS_Store
