@@ -23,8 +23,8 @@ module.exports = {
 		hasSidebar: true,
 		disableImageTreatments: true,
 		projectStillActive: true,
-		projectURL: '',
-		highlight: '2+ million'
+		projectURL: 'https://www.snopes.com',
+		highlight: '10+ million monthly visitors'
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

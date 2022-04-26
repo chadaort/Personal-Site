@@ -24,7 +24,7 @@ module.exports = {
 			}
 		],
 		projectStillActive: true,
-		projectURL: ''
+		projectURL: 'https://propermedia.io'
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

@@ -47,8 +47,8 @@ module.exports = {
 			}
 		],
 		hasSidebar: true,
-		projectStillActive: false,
-		projectURL: 'http://something.com'
+		projectStillActive: true,
+		projectURL: 'https://www.bladeandsoul.com/en-us'
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

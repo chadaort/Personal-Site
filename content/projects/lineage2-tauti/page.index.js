@@ -31,7 +31,7 @@ module.exports = {
 			}
 		],
 		projectStillActive: true,
-		projectURL: ''
+		projectURL: 'https://www.lineage2.com/'
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

@@ -38,7 +38,7 @@ module.exports = {
 			}
 		],
 		projectStillActive: true,
-		projectURL: ''
+		projectURL: 'https://www.guildwars2.com/'
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

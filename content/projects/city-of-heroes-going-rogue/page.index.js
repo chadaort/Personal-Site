@@ -38,7 +38,6 @@ module.exports = {
 			}
 		],
 		projectStillActive: false,
-		projectURL: ''
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

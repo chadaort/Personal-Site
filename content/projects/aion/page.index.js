@@ -41,7 +41,7 @@ module.exports = {
 		],
 		hasSidebar: true,
 		projectStillActive: true,
-		projectURL: '',
+		projectURL: 'https://www.aiononline.com/',
 		highlight: '2+ million monthly visitors'
 	},
 	filters: {

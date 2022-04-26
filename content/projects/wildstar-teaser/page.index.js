@@ -37,8 +37,7 @@ module.exports = {
 				summary: ''
 			}
 		],
-		projectStillActive: true,
-		projectURL: ''
+		projectStillActive: false
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

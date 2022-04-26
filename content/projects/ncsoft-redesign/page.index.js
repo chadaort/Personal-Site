@@ -31,7 +31,7 @@ module.exports = {
 			}
 		],
 		projectStillActive: true,
-		projectURL: ''
+		projectURL: 'https://us.ncsoft.com/en-us'
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

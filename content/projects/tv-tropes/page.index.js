@@ -37,8 +37,9 @@ module.exports = {
 				summary: ''
 			}
 		],
-		projectStillActive: false,
-		projectURL: ''
+		projectStillActive: yes,
+		projectURL: 'https://tvtropes.org/',
+		highlight: '20+ million monthly visitors'
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )

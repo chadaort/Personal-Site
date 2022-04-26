@@ -38,7 +38,8 @@ module.exports = {
 			}
 		],
 		projectStillActive: true,
-		projectURL: ''
+		projectURL: 'https://www.guildwars2.com/',
+		highlight: '30+ million monthly visitors'
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )
