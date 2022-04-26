@@ -1,0 +1,19 @@
+.snopes__featured-banner-text {
+	margin: 0 auto 3.5rem;
+	max-width: 750px;
+	text-align: center;
+    text-transform: uppercase;
+    line-height: 1.6;
+
+	[data-theme="dark"] & { margin-top: 1rem }
+
+	em {
+		padding: 0 3px;
+		display: inline-block;
+		color: white;
+		font-weight: 400;
+		background: #FBD459;
+
+		[data-theme="dark"] & { background: rgba( #FBD459, .75 ) }
+	}
+}

@@ -12,9 +12,7 @@ module.exports = {
 	meta: {
 		subtitle: 'blog',
 		homePageList: true,
-		hasSidebar: true,
-		projectStillActive: true,
-		projectURL: ''
+		hasSidebar: true
 	},
 	filters: {
 		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'blog', siteMap, 3, 'random' )

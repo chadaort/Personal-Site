@@ -8,7 +8,7 @@ module.exports = {
 		date: '03/13/2012',
 		title: 'Blade and Soul',
 		body: './index.md',
-		summary: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+		summary: 'Blade and Soul was developed by NCSOFT East and launched in the west about 9 after initially launching in the east. It was another beautiful game with a really rich story. My only complaint with the game has more to do with what free-to-play has done to gameplay in MMO\'s. ',
 		tags: [ 'website' ]
 	},
 	meta: {

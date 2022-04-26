@@ -68,12 +68,16 @@ $company-border-width: 7px;
 	margin: 0;
 	padding: 3rem 0;
 	display: block;
-	color: #333;
+	color: var( --color__text-summary );
 	font-family: $typography__font-heading;
 	font-size: var( --font__scale-4 );
 	font-weight: 900;
 	text-align: center;
 	text-transform: uppercase;
+
+	.company-link__a:hover & {
+		color: var( --color__secondary );
+	}
 }
 
 .company-link__details {
