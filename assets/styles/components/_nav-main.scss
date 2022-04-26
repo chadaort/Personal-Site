@@ -72,6 +72,8 @@
 		.is-home .header & {
 			color: rgba( white, .3 );
 		}
+
+		.header__menu--active & { display: none }
 	}
 
 	.main-nav__li:last-child &::after {

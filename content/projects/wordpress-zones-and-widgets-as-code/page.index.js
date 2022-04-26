@@ -1,34 +1,32 @@
-const pageHandler = require( '../../../inc/page.js' );
+const pageHandler = require( '../../../inc/page' );
 
 const assetNamespace = 'wordpress-zones-and-widgets-as-code';
 
 module.exports = {
 	post: {
 		type: 'project',
-		date: '02/03/2018',
+		date: '10/23/2019',
 		title: 'Wordpress zones and widgets as code',
 		body: './index.md',
-		summary: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-		tags: ['website'],
+		summary: 'There was a need internally to have a lot of granular control over placing secondary content or marketing materials. WordPress has widgets that can be managed from the admin panel but they don’t really support distinct variations across post types or at the post level.',
+		tags: [ 'website' ]
 	},
 	meta: {
 		subtitle: 'WordPress Plugin',
-		thumb: `assets/images/content/${assetNamespace}/thumb`,
+		thumb: `assets/images/content/${ assetNamespace }/thumb`,
 		featureImage: {
-			src: `assets/images/content/${assetNamespace}/banner`,
+			src: `assets/images/content/${ assetNamespace }/banner`,
 			alt: '',
 			title: '',
-			summary: '',
+			summary: ''
 		},
 		hasSidebar: true,
 		disableImageTreatments: true,
 		projectStillActive: true,
 		projectURL: '',
-		highlight: '2+ million',
+		highlight: '2+ million'
 	},
 	filters: {
-		sidebarData: ( data, siteMap ) => {
-			return pageHandler.getPostsByType( 'project', siteMap, 3, 'random' );
-		},
-	},
-}
+		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )
+	}
+};

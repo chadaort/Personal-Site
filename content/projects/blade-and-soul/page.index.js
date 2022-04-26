@@ -1,58 +1,56 @@
-const pageHandler = require( '../../../inc/page.js' );
+const pageHandler = require( '../../../inc/page' );
 
 const assetNamespace = 'blade-and-soul-teaser';
 
 module.exports = {
 	post: {
 		type: 'project',
-		date: '01/04/2018',
+		date: '03/13/2012',
 		title: 'Blade and Soul',
 		body: './index.md',
 		summary: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-		tags: ['website'],
+		tags: [ 'website' ]
 	},
 	meta: {
 		homePageList: true,
 		projectPosition: 'lead developer',
 		subtitle: 'Teaser site',
-		thumb: `assets/images/content/${assetNamespace}/thumb`,
+		thumb: `assets/images/content/${ assetNamespace }/thumb`,
 		featureImageSet: [
 			{
-				src: `assets/images/content/${assetNamespace}/screen1-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen1.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen1-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen1.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
+				summary: ''
 			},
 			{
-				src: `assets/images/content/${assetNamespace}/screen2-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen2.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen2-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen2.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
+				summary: ''
 			},
 			{
-				src: `assets/images/content/${assetNamespace}/screen3-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen3.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen3-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen3.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
+				summary: ''
 			},
 			{
-				src: `assets/images/content/${assetNamespace}/screen4-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen4.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen4-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen4.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
-			},
+				summary: ''
+			}
 		],
 		hasSidebar: true,
 		projectStillActive: false,
-		projectURL: 'http://something.com',
+		projectURL: 'http://something.com'
 	},
 	filters: {
-		sidebarData: ( data, siteMap ) => {
-			return pageHandler.getPostsByType( 'project', siteMap, 3, 'random' );
-		},
-	},
-}
+		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )
+	}
+};

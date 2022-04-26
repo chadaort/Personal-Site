@@ -1,6 +1,4 @@
-export default ( src = null ) => {
-
-	return `
+export default ( src = null ) => `
 		<div id="lightbox" class="lightbox${ src ? ' lightbox--active' : '' }" data-index>
 			<div class="lightbox__wrapper">
 				<div class="lightbox__img-wrapper">
@@ -12,4 +10,3 @@ export default ( src = null ) => {
 			</div>
 		</div>
 	`;
-};

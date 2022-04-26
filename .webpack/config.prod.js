@@ -71,6 +71,14 @@ module.exports = function() {
 								from: path.join( process.cwd(), 'assets/images' ),
 								to: 'assets/images',
 							},
+							{
+								from: path.join( process.cwd(), 'favicon.ico' ),
+								to: '',
+							},
+							{
+								from: path.join( process.cwd(), 'robots.txt' ),
+								to: '',
+							},
 						],
 					} ),
 

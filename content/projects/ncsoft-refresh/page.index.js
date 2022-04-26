@@ -1,43 +1,41 @@
-const pageHandler = require( '../../../inc/page.js' );
+const pageHandler = require( '../../../inc/page' );
 
 const assetNamespace = 'ncsoft-refresh';
 
 module.exports = {
 	post: {
 		type: 'project',
-		date: '01/20/2018',
+		date: '11/21/2011',
 		title: 'NCSOFT refresh',
 		body: './index.md',
 		summary: 'Corporate site changes and especially redesigns can have a really tricky approval process and this project was no different. I think we ended up adding on like a dozen stakeholders in various capacities through the process.',
-		tags: ['website'],
+		tags: [ 'website' ]
 	},
 	meta: {
 		subtitle: 'Publisher site',
 		homePageList: true,
 		projectPosition: 'lead developer',
-		thumb: `assets/images/content/${assetNamespace}/thumb`,
+		thumb: `assets/images/content/${ assetNamespace }/thumb`,
 		featureImageSet: [
 			{
-				src: `assets/images/content/${assetNamespace}/screen1-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen1.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen1-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen1.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
+				summary: ''
 			},
 			{
-				src: `assets/images/content/${assetNamespace}/screen2-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen2.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen2-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen2.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
-			},
+				summary: ''
+			}
 		],
 		projectStillActive: true,
-		projectURL: '',
+		projectURL: ''
 	},
 	filters: {
-		sidebarData: ( data, siteMap ) => {
-			return pageHandler.getPostsByType( 'project', siteMap, 3, 'random' );
-		},
-	},
-}
+		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )
+	}
+};

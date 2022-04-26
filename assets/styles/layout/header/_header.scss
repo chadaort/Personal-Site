@@ -21,6 +21,7 @@
 	align-items: center;
 	width: 100%;
 	height: var( --header-height );
+	z-index: 26;
 
 	&:after {
 		content: '';
@@ -39,7 +40,6 @@
 
 	.is-home & {
 		position: absolute;
-		z-index: 4;
 
 		&:before {
 			content: '';

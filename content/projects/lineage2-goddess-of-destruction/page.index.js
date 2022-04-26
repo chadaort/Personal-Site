@@ -1,34 +1,32 @@
-const pageHandler = require( '../../../inc/page.js' );
+const pageHandler = require( '../../../inc/page' );
 
 const assetNamespace = 'lineage2-goddess-of-destruction';
 
 module.exports = {
 	post: {
 		type: 'project',
-		date: '01/09/2018',
+		date: '05/29/2013',
 		title: 'Lineage 2 Goddess of Destruction',
 		body: './index.md',
 		summary: 'Goddess of Destruction was an expansion pack for Lineage 2. Not all expansions packs got a microsite but this one did because it was a huge update.',
-		tags: ['website'],
+		tags: [ 'website' ]
 	},
 	meta: {
 		subtitle: 'Expansion microsite',
-		thumb: `assets/images/content/${assetNamespace}/thumb`,
+		thumb: `assets/images/content/${ assetNamespace }/thumb`,
 		featureImageSet: [
 			{
-				src: `assets/images/content/${assetNamespace}/screen1-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen1.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen1-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen1.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
-			},
+				summary: ''
+			}
 		],
 		projectStillActive: true,
-		projectURL: '',
+		projectURL: ''
 	},
 	filters: {
-		sidebarData: ( data, siteMap ) => {
-			return pageHandler.getPostsByType( 'project', siteMap, 3, 'random' );
-		},
-	},
-}
+		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )
+	}
+};

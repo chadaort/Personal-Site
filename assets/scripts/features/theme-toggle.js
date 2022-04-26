@@ -1,11 +1,11 @@
 /**
  * Provides the behavior for the toggle buttons.
  */
- export default () => {
+export default () => {
 	const themeToggleButtons = document.querySelectorAll( '[data-theme-toggle]' );
 	const themeChangeEvent = new Event( 'themeChangeEvent' );
-	themeToggleButtons.forEach( btn => {
-		btn.addEventListener( 'click', function( e ) {
+	themeToggleButtons.forEach( ( btn ) => {
+		btn.addEventListener( 'click', ( e ) => {
 			e.preventDefault();
 			const currentTheme = document.body.getAttribute( 'data-theme' ) ?? 'light';
 			const activatedTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -14,4 +14,4 @@
 			window.localStorage.setItem( 'theme', activatedTheme );
 		} );
 	} );
-}
+};

@@ -4,8 +4,24 @@ const gridImages = [
 	'content/blade-and-soul-teaser/intro-thumb.png',
 	'content/guildwars2-launch/intro-thumb.png',
 	'content/lineage2-goddess-of-destruction/intro-thumb.png',
+	'content/lineage2-goddess-of-destruction/intro-thumb-2.png',
 	'content/ncsoft-redesign/intro-thumb.png',
-	'content/tv-tropes/intro-thumb.png'
+	'content/tv-tropes/intro-thumb.png',
+	'content/ad-tech-video-player/intro-thumb.png',
+	'content/carbine-studios-redesign/intro-thumb.png',
+	'content/city-of-heroes-free-to-play/intro-thumb.png',
+	'content/city-of-heroes-going-rogue/intro-thumb.png',
+	'content/element-gallery/intro-thumb.png',
+	'content/lineage2-redesign/intro-thumb.png',
+	'content/lineage2-tauti/intro-thumb.png',
+	'content/ncsoft-redesign/intro-thumb.png',
+	'content/ncsoft-refresh/intro-thumb.png',
+	'content/snopes/intro-thumb.png',
+	'content/snopes/intro-thumb-2.png',
+	'content/snopes-webhook-consumer/intro-thumb.png',
+	'content/wildstar-teaser/intro-thumb.png',
+	'content/my-aion/intro-thumb.png',
+	'content/guildwars2-teaser/intro-thumb.png'
 ];
 
 const sceneImages = [
@@ -354,7 +370,7 @@ export default class Intro {
 
 		// Draw the gradient canvas onto the grid canvas using a blending mode.
 		this.gridCtx.globalCompositeOperation = 'multiply';
-		this.gridCtx.globalAlpha = this.theme === 'light' ? 0.35 : 0.75;
+		this.gridCtx.globalAlpha = this.theme === 'light' ? 0.7 : 0.75;
 		this.gridCtx.drawImage(
 			this.gradientCanvas,
 			0,
@@ -414,7 +430,7 @@ export default class Intro {
 		if ( this.sceneImgs['dark-intro-left-bg.png'] && this.sceneImgs['dark-intro-right-bg.png'] ) {
 			this.ctx.drawImage( this.gridCanvas, 0, 0 );
 
-			this.ctx.globalAlpha = 0.55;
+			this.ctx.globalAlpha = this.deviceSize === 'mobile' || this.deviceSize === 'tablet' ? 0.4 : 0.55;
 
 			const leftBg = this.sceneImgs['dark-intro-left-bg.png'].img;
 			const leftBgHeight = ( 90 / 100 ) * this.canvas.height;
@@ -440,7 +456,8 @@ export default class Intro {
 
 			this.ctx.globalAlpha = 1;
 
-			this.ctx.fillStyle = 'rgba( 0, 0, 0, .65 )';
+			const opacity = this.deviceSize === 'mobile' || this.deviceSize === 'tablet' ? 0.5 : 0.65;
+			this.ctx.fillStyle = `rgba( 0, 0, 0, ${ opacity } )`;
 			this.ctx.fillRect( 0, 0, this.canvas.width, this.canvas.height );
 		}
 	}

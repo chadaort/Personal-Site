@@ -89,6 +89,12 @@
 		width: 100%;
 	}
 
+	// @todo - Tempoarily stretching the first image which expands 2 cells.
+	&:first-child .project-grid__item-thumb {
+		max-width: none;
+		width: 100%;
+	}
+
 	@include media-query( $start: tablet ) {
 		margin: 0 auto;
 

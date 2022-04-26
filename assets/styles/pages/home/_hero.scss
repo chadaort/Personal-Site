@@ -179,7 +179,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	opacity: .87;
+	opacity: .9;
 	z-index: 1;
 
 	@include media-query( $start: 650px ) {

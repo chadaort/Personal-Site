@@ -1,48 +1,46 @@
-const pageHandler = require( '../../../inc/page.js' );
+const pageHandler = require( '../../../inc/page' );
 
 const assetNamespace = 'carbine-studios-redesign';
 
 module.exports = {
 	post: {
 		type: 'project',
-		date: '01/05/2018',
+		date: '01/04/2012',
 		title: 'Carbine Studios',
 		body: './index.md',
 		summary: 'Carbine Studios was the studio behind the fantasy MMO game called Wildstar. It was a beautiful game that had a lot of excitement going into the release.',
-		tags: ['website'],
+		tags: [ 'website' ]
 	},
 	meta: {
 		subtitle: 'Game studio site',
-		thumb: `assets/images/content/${assetNamespace}/thumb`,
+		thumb: `assets/images/content/${ assetNamespace }/thumb`,
 		featureImageSet: [
 			{
-				src: `assets/images/content/${assetNamespace}/screen1-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen1.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen1-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen1.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
+				summary: ''
 			},
 			{
-				src: `assets/images/content/${assetNamespace}/screen2-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen2.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen2-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen2.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
+				summary: ''
 			},
 			{
-				src: `assets/images/content/${assetNamespace}/screen3-thumb`,
-				raw: `assets/images/content/${assetNamespace}/screen3.jpg`,
+				src: `assets/images/content/${ assetNamespace }/screen3-thumb`,
+				raw: `assets/images/content/${ assetNamespace }/screen3.jpg`,
 				alt: '',
 				title: '',
-				summary: '',
-			},
+				summary: ''
+			}
 		],
 		projectStillActive: false,
-		projectURL: '',
+		projectURL: ''
 	},
 	filters: {
-		sidebarData: ( data, siteMap ) => {
-			return pageHandler.getPostsByType( 'project', siteMap, 3, 'random' );
-		},
-	},
-}
+		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )
+	}
+};
