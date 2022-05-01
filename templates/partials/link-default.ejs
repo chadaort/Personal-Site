@@ -6,7 +6,7 @@
 			<a
 				class="<%= buildContainerClass( [ `${classPrefix}-img-wrapper`, imgTreatmentClass ] ); %>"
 				data-test
-				href="<%= `${ templateData.site.core.siteUrl }/${ item.rootPath }` %>"
+				href="<%= `${ templateData.site.core.siteUrl }/${ item.post.publicPath }` %>"
 			>
 				<img
 					class="<%= classPrefix %>img"
@@ -23,7 +23,7 @@
 				<a class="<%= classPrefix %>title-a" href="#"><%= item.post.title %></a>
 			</h3>
 			<p class="<%= classPrefix %>summary"><%= item.post.summary %></p>
-			<a class="<%= classPrefix %>cta" href="<%= `${ templateData.site.core.siteUrl }/${ item.publicPath }` %>">Read More</a>
+			<a class="<%= classPrefix %>cta" href="<%= `${ templateData.site.core.siteUrl }/${ item.post.publicPath }` %>">Read More</a>
 		</div>
 	</div>
 <% } %>

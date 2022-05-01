@@ -37,7 +37,7 @@ module.exports = {
 				summary: ''
 			}
 		],
-		projectStillActive: yes,
+		projectStillActive: true,
 		projectURL: 'https://tvtropes.org/',
 		highlight: '20+ million monthly visitors'
 	},

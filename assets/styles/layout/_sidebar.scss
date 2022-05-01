@@ -66,7 +66,7 @@ $company-border-width: 7px;
 
 .company-link__name {
 	margin: 0;
-	padding: 3rem 0;
+	padding: 3rem .5rem;
 	display: block;
 	color: var( --color__text-summary );
 	font-family: $typography__font-heading;

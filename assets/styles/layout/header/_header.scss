@@ -45,10 +45,15 @@
 			content: '';
 			position: absolute;
 			top: 0;
-			left: -100%;
-			right: -100%;
+			left: 0;
+			right: 0;
 			bottom: 0;
 			background: rgba( white, .7 );
+
+			@include media-query( $start: 1190px ) {
+				left: -100%;
+				right: -100%;
+			}
 		}
 	}
 

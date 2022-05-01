@@ -16,6 +16,6 @@ module.exports = {
 		hasSidebar: true
 	},
 	filters: {
-		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'project', siteMap, 3, 'random' )
+		sidebarData: ( data, siteMap ) => pageHandler.getPostsByType( 'blog', siteMap, 3, 'random' )
 	}
 };

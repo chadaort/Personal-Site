@@ -72,7 +72,7 @@ module.exports = function() {
 								to: 'assets/images',
 							},
 							{
-								from: path.join( process.cwd(), 'favicon.ico' ),
+								from: path.join( process.cwd(), 'assets/images/favicons/favicon.ico' ),
 								to: '',
 							},
 							{

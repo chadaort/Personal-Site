@@ -33,6 +33,7 @@ module.exports = {
 				peerDependencies: false,
 				packageDir: './'
 			}
-		]
+		],
+		'no-param-reassign': 0
 	}
 };

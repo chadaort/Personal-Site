@@ -100,6 +100,8 @@ export default class Intro {
 		this.colorIndices = [ 0, 1, 2, 3 ];
 		this.gradientSpeed = this.theme === 'dark' ? 0.9 : 0.6;
 
+		this.ctx.imageSmoothingQuality = 'high';
+
 		this.setupImgs();
 		this.changeHandler();
 
@@ -191,7 +193,17 @@ export default class Intro {
 			return;
 		}
 
-		this.imgs[index].img = img;
+		console.log( path );
+
+		this.imgs[index].canvas = document.createElement( 'canvas' );
+		// const ctx = this.imgs[index].img.getContext( '2d' );
+
+		// ctx.drawImage( img, 0, 0, img.width, img.height );
+
+		const resizedImg = this.constructor.resizeImage( img, this.imgs[index].canvas, this.grid.itemWidth );
+		const croppedImg = this.cropImage( resizedImg, this.grid.itemWidth, this.grid.itemHeight );
+		// this.imgs[index].img = img;
+		this.imgs[index].img = croppedImg;
 		this.imgs[index].path = path;
 		this.imgs[index].opacity = 0;
 	}
@@ -205,30 +217,90 @@ export default class Intro {
 	 *
 	 * @returns {HTMLCanvasElement} Resized image on a canvas
 	 */
-	resizeImage( img, width = null, height = null ) {
-		if ( !this.imageResizeCanvas ) {
-			this.imageResizeCanvas = document.createElement( 'canvas' );
-			this.imageResizeCtx = this.imageResizeCanvas.getContext( '2d' );
-		}
+	static resizeImage( img, imgCanvas, width = null, height = null ) {
+		const imgCtx = imgCanvas.getContext( '2d' );
 
 		const ratio = width ? Math.min( width / img.width, 1 ) : Math.min( 1, height / img.height );
-		this.imageResizeCanvas.width = img.width * ratio;
-		this.imageResizeCanvas.height = img.height * ratio;
-		this.imageResizeCtx.clearRect(
-			0,
-			0,
-			this.imageResizeCanvas.width,
-			this.imageResizeCanvas.height
-		);
-		this.imageResizeCtx.drawImage(
+		imgCanvas.width = img.width * ratio;
+		imgCanvas.height = img.height * ratio;
+
+		imgCtx.fillStyle = 'red';
+		imgCtx.fillRect( 0, 0, imgCanvas.width, imgCanvas.height );
+
+		imgCtx.drawImage(
 			img,
 			0,
 			0,
-			this.imageResizeCanvas.width,
-			this.imageResizeCanvas.height
+			imgCanvas.width,
+			imgCanvas.height
 		);
 
-		return this.imageResizeCanvas;
+		return imgCanvas;
+	}
+
+	cropImage( img, width, height ) {
+		if ( !this.cropCanvas ) {
+			this.cropCanvas = document.createElement( 'canvas' );
+			this.cropCtx = this.cropCanvas.getContext( '2d' );
+		}
+
+		this.cropCanvas.width = this.canvas.width;
+		this.cropCanvas.height = this.canvas.height;
+		this.cropCtx.clearRect( 0, 0, this.canvas.width, this.canvas.height );
+
+		if ( width > img.width ) {
+			width = img.width;
+		}
+
+		if ( height > img.height ) {
+			height = img.height;
+		}
+
+		const posCrop = ( axis, position ) => {
+			if ( axis === 'x' ) {
+				if ( img.width > width || position === 'left' ) {
+					return 0;
+				}
+
+				if ( position === 'center' ) {
+					return ( img.width - width ) / 2;
+				} if ( position === 'right' ) {
+					return img.width - width;
+				}
+			}
+
+			if ( axis === 'y' ) {
+				if ( img.height > height || position === 'top' ) {
+					return 0;
+				}
+
+				if ( position === 'center' ) {
+					return ( img.height - height ) / 2;
+				} if ( position === 'bottom' ) {
+					return img.height - height;
+				}
+			}
+
+			return 0;
+		};
+
+		this.cropCanvas.width = width;
+		this.cropCanvas.height = height;
+
+		this.cropCtx.drawImage(
+			img,
+			posCrop( 'x', 'center' ), posCrop( 'y', 'top' ), width, height,
+			0, 0, width, height
+		);
+
+		const imgCtx = img.getContext( '2d' );
+
+		img.width = width;
+		img.height = height;
+		imgCtx.drawImage( this.cropCanvas, 0, 0, width, height );
+
+		img = this.imageResizeCanvas;
+		return img;
 	}
 
 	/**
@@ -299,7 +371,7 @@ export default class Intro {
 			for ( let cols = 0; cols < this.grid.cols; cols++ ) {
 				const imgData = getImgData();
 
-				if ( imgData.img ) {
+				if ( imgData.canvas ) {
 					if ( imgData.opacity < 1 ) {
 						// imgData.opacity += this.timeElapsed / 500;
 						// this.gridCtx.globalAlpha = imgData.opacity;
@@ -310,7 +382,7 @@ export default class Intro {
 					this.gridCtx.fillRect( x, y, this.grid.itemWidth, this.grid.itemHeight );
 
 					this.gridCtx.drawImage(
-						imgData.img,
+						imgData.canvas,
 						x, y, this.grid.itemWidth, this.grid.itemHeight
 					);
 				} else {
@@ -369,8 +441,8 @@ export default class Intro {
 		this.gradientCtx.globalCompositeOperation = defaultCompOp;
 
 		// Draw the gradient canvas onto the grid canvas using a blending mode.
-		this.gridCtx.globalCompositeOperation = 'multiply';
-		this.gridCtx.globalAlpha = this.theme === 'light' ? 0.7 : 0.75;
+		this.gridCtx.globalCompositeOperation = this.theme === 'light' ? 'multiply' : 'overlay';
+		this.gridCtx.globalAlpha = this.theme === 'light' ? 0.6 : 0.75;
 		this.gridCtx.drawImage(
 			this.gradientCanvas,
 			0,
@@ -430,7 +502,7 @@ export default class Intro {
 		if ( this.sceneImgs['dark-intro-left-bg.png'] && this.sceneImgs['dark-intro-right-bg.png'] ) {
 			this.ctx.drawImage( this.gridCanvas, 0, 0 );
 
-			this.ctx.globalAlpha = this.deviceSize === 'mobile' || this.deviceSize === 'tablet' ? 0.4 : 0.55;
+			this.ctx.globalAlpha = 0.6;
 
 			const leftBg = this.sceneImgs['dark-intro-left-bg.png'].img;
 			const leftBgHeight = ( 90 / 100 ) * this.canvas.height;
@@ -456,8 +528,7 @@ export default class Intro {
 
 			this.ctx.globalAlpha = 1;
 
-			const opacity = this.deviceSize === 'mobile' || this.deviceSize === 'tablet' ? 0.5 : 0.65;
-			this.ctx.fillStyle = `rgba( 0, 0, 0, ${ opacity } )`;
+			this.ctx.fillStyle = 'rgba( 0, 0, 0, .65 )';
 			this.ctx.fillRect( 0, 0, this.canvas.width, this.canvas.height );
 		}
 	}

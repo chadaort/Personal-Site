@@ -7,14 +7,14 @@
 		<% templateData.sidebar.forEach( item => { %>
 			<li class="aside-content__list-li">
 				<div class="company-link__item">
-					<a class="company-link__a" href="<%= `${ templateData.site.core.siteUrl }/${ item.rootPath }` %>">
+					<a class="company-link__a" href="<%= `${ templateData.site.core.siteUrl }/${ item.post.publicPath }` %>">
 						<h3 class="company-link__name"><%= item.post.title %></h3>
 						<h4 class="company-link__type"><%= item.meta.companyType %></h4>
 					</a>
 
 					<div class="company-link__details">
 						<p class="company-link__summary"><%= item.post.summary %></p>
-						<a class="company-link__cta" href="<%= `${ templateData.site.core.siteUrl }/${ item.publicPath }` %>">Read More</a>
+						<a class="company-link__cta" href="<%= `${ templateData.site.core.siteUrl }/${ item.post.publicPath }` %>">Read More</a>
 					</div>
 				</div>
 			</li>
