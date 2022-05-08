@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ContactForm from './components/ContactForm';
-import Intro from './Intro';
+import Intro from './intro/Intro';
 import activeMenu from './features/active-menu';
 import contentAside from './features/content-aside';
 import icons from './features/icons';
