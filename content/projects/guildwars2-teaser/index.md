@@ -1,4 +1,4 @@
-ArenaNet, the studio behind Guild Wars, has an incredible passion for their game with some of the most loyal players. There was so much hype about the release of Guild Wars 2 in 2012 that it was probably the best time to work for NCSOFT. 
+The studio behind Guild Wars, ArenaNet, has an incredible passion for their game with some of the most loyal players. There was so much hype about the release of Guild Wars 2 in 2012 that it was probably the best time to work for NCSOFT. 
 
 [Daniel Dociu](https://www.linkedin.com/in/daniel-dociu-456a223/) was the art director at ArenaNet who had the creative vision behind Guild Wars 2. His work is stunning, and his management style promotes an environment where artists can thrive. The result was impressive art and a beautiful game. [You can look at his work here](https://daniel_dociu.artstation.com/projects).
 
