@@ -1,6 +1,6 @@
 There was a need internally to have granular control over placing secondary content or marketing materials on the site. WordPress has widgets that can be managed from the admin panel, but the UI doesn't lend itself well when there are a lot of variations across post types or at the post level. There are plugins like Custom Sidebars, but they all fell short of meeting our business and code quality requirements. It’s incredible how many WordPress plugins lack proper sanitization or escaping output, but that’s the world we live in. After some internal discussion, it was decided that the business didn’t require editing control over these placements via the admin panel. So that meant that these placements could be configured in code.
 
-The sheer amount of variations meant that we couldn’t bake these into templates in any sane way. The solution was to build a GUI-less widget system and these were the requirements.
+The sheer amount of variations meant that we couldn’t bake these into templates in any sane way. The solution was to build a GUI-less widget system, and these were the requirements.
 
 - The ability to assign widgets to only display in specific contexts.
     - Home page
@@ -15,7 +15,7 @@ WordPress has a system where you create an unlimited amount of “sidebars” an
 
 
 - Zone - A zone is placements on the page like the sidebar or post-footer. A page can have an unlimited amount of zones.
-- Group - Is a wrapper of multiple widgets that can be assigned to a zone. Multiple groups can be assigned to a zone.
+- A group - Is a wrapper of multiple widgets that can be assigned to a zone. Multiple groups can be assigned to a zone.
 - Widget - Some code block. This could be a simple message, post list, or newsletter signup. You can assign an unlimited amount of widgets to a group.
 
 On page, zone placements would look something like this.
